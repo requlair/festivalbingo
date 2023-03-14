@@ -1,9 +1,11 @@
 <template>
-  <BingoCard/>
+<div>
+    <p>Hallo</p>
+</div>
 </template>
 
 <script setup lang="ts">
-import BingoCard from './components/BingoCard.vue'
+
 </script>
 
 <style scoped>
