@@ -1,7 +1,7 @@
 <template>
     <div>
         <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="49" stroke="black" stroke-width="2" fill="none"/>
+            <circle cx="50" cy="50" r="49" :stroke="getSettings.borderColor" stroke-width="2" fill="none"/>
             <foreignObject height="70" width="70" x="15" y="15">
                 <div class="w-full h-full flex justify-center items-center">
                     <p class="text-center font-bold text-[50%]">{{ text }}</p>
@@ -13,8 +13,12 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useSettingsStore } from '../../stores/useSettingsStore';
+
 defineProps({
     text: { type: String, required: true },
     checked: { type: Boolean, required: true }
 })
+const { getSettings } = storeToRefs(useSettingsStore());
 </script>

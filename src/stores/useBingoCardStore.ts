@@ -26,6 +26,9 @@ export const useBingoCardsStore = defineStore('bingoCards', {
             }
             this.cards[index] = newCard;
         },
+        resetCards() {
+            this.cards = bingoCards;
+        }
     }
 });
 

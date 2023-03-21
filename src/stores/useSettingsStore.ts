@@ -1,41 +1,37 @@
 import { defineStore } from 'pinia';
 import { RemovableRef, useStorage } from '@vueuse/core';
 import { stringify, parse } from 'zipson';
+import { ThemeSettings } from '../types/types';
 
-const defaultSettings: Settings = {
-    fontFamily: 'default',
-    headerImage: 'default',
-    backgroundImage: 'default'
-
+const defaultSettings: ThemeSettings = {
+    name: 'festival',
+    fontFamily: 'festival',
+    headerImage: 'FB_Header',
+    backgroundImage: 'FB_Background',
+    borderColor: '#000000'
 }
 
 export const useSettingsStore = defineStore('settings', {
     state: (): State => ({
-        settings: useStorage('settings', defaultSettings, undefined, {
+        themeSettings: useStorage('theme-settings', defaultSettings, undefined, {
             serializer: {
                 read: (value: string) => value ? parse(value) : null,
-                write: (value: Settings) => stringify(value),
+                write: (value: ThemeSettings) => stringify(value),
             },
         }),
     }),
     getters: {
-        getSettings(): Settings {
-            return this.settings;
+        getSettings(): ThemeSettings {
+            return this.themeSettings;
         },
     },
     actions: {
-        updateSettings(newSettings: Settings) {
-            this.settings = newSettings;
+        updateSettings(newSettings: ThemeSettings) {
+            this.themeSettings = newSettings;
         },
     }
 });
 
 interface State {
-    settings: RemovableRef<Settings>
-}
-
-interface Settings {
-    fontFamily: string,
-    headerImage: string,
-    backgroundImage: string,
+    themeSettings: RemovableRef<ThemeSettings>
 }

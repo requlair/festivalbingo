@@ -10,9 +10,9 @@
       <template v-slot:body>
         <div class="w-80 h-60">
           <div v-if="!card.checked" class="w-full h-full border-2 border-dashed rounded-lg">
-            <CameraPad ref="userInput" v-if="selectedInput === 'Camera'" @change="saveInput"/>
-            <SignaturePad ref="userInput" v-if="selectedInput === 'Krabbel'"/>
-            <MessagePad ref="userInput" v-if="selectedInput === 'Bericht'"/>
+            <CameraPad ref="userInput" v-if="selectedInput.value === 'image'" @change="saveInput"/>
+            <SignaturePad ref="userInput" v-if="selectedInput.value === 'signature'"/>
+            <MessagePad ref="userInput" v-if="selectedInput.value === 'message'"/>
           </div>
           <div v-else>
             <div v-if="LZString.decompress(card.signature).startsWith('data:image')" class="flex justify-center items-center">
@@ -27,13 +27,8 @@
 
       <template v-slot:footer>
         <div v-if="!card.checked" class="flex">
-            <div class="border-2 px-2 py-1 w-30 h-9 rounded-lg">
-              <select v-model="selectedInput" class="outline-0">
-                <option disabled value="">Opties:</option>
-                <option v-for="option in inputOptions">{{ option }}</option>
-              </select>
-            </div>
-            <button class="border-2 px-2 py1 w-24 h-9 rounded-lg" v-if="selectedInput !== 'Camera'" type="submit" @click="saveInput">
+            <Dropdown :selectedItem="selectedInput" :items="inputOptions" :onOptionClicked="handleInputSelect"/>
+            <button class="border-2 px-2 py1 w-24 h-9 rounded-lg" v-if="selectedInput.value !== 'image'" type="submit" @click="saveInput">
               Opslaan
             </button>
         </div>
@@ -47,22 +42,29 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import { BingoCard } from '../../types/types';
+import { BingoCard, DropdownItem } from '../../types/types';
 import CameraPad from '../CameraPad.vue';
 import BaseModal from '../modals/BaseModal.vue';
 import SignaturePad from '../SignaturePad.vue';
 import MessagePad from '../MessagePad.vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import LZString from 'lz-string';
+import Dropdown from '../dropdown/Dropdown.vue';
   const props = defineProps<{
     open: boolean,
     card: BingoCard,
   }>()
   const { updateCard } = useBingoCardsStore();
   const userInput = ref<typeof SignaturePad | typeof MessagePad | typeof CameraPad | null>(null);
-  const inputOptions = [ 'Camera', 'Krabbel', 'Bericht' ]
-
+  const inputOptions: DropdownItem[] = [
+    { icon: '&#128247;', label: 'Camera', value: 'image'},
+    { icon: '&#9997;', label: 'Krabbel', value: 'signature'},
+    { icon: '&#128172;', label: 'Bericht', value: 'message'},
+  ];
   const selectedInput = ref(inputOptions[0]);
+  function handleInputSelect (value: string) {
+    selectedInput.value = inputOptions.filter(option => option.value === value)[0];
+  }
 
   const saveInput = async () => {
     const newCard = props.card;
