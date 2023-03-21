@@ -1,0 +1,74 @@
+<template>
+    <BaseModal :show="open" @close="handleClose">
+        <template v-slot:header>
+            <div class="w-80 flex justify-between">
+                <h2 class="w-[300px]">Deel deze app!</h2>
+                <button @click="handleClose">&#10761;</button>
+            </div>
+        </template>
+        <template v-slot:body>
+            <p class="w-80 py-2 break-words">
+                Ben je ook zo lekker aan het bingoën maar willen je vrienden/vriendinnen mee doen? Dat kan! Je kunt ze de QR code laten scannen of de app delen via social media of de link.
+            </p>
+            <div class="flex justify-center">
+                <ShareNetwork
+                class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+                network="whatsapp"
+                :url="link"
+                title="Bingo mee met de Festival Bingo App"
+                description="Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!"
+                hashtags="FestivalBingo"
+                ><img class="icon" src="../../assets/images/WhatsApp-logo.svg"/></ShareNetwork>
+                <ShareNetwork
+                    class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+                    network="facebook"
+                    :url="link"
+                    title="Bingo mee met de Festival Bingo App"
+                    description="Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!"
+                    hashtags="FestivalBingo"
+                ><img class="icon" src="../../assets/images/Facebook-logo.svg"/></ShareNetwork>
+                <ShareNetwork
+                    class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+                    network="twitter"
+                    :url="link"
+                    title="Bingo mee met de Festival Bingo App"
+                    description="Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!"
+                    hashtags="FestivalBingo"
+                ><img class="icon" src="../../assets/images/Twitter-logo.svg"/></ShareNetwork>
+                <button 
+                    class="border-2 w-36 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+                    @click="copyLink"
+                >Kopieer de link</button>
+            </div>
+            <div class="flex justify-center mt-4">
+                <qrcode-vue value="https://requlair.github.io/festivalbingo" level="H" />
+            </div>
+
+        </template>
+    </BaseModal>
+</template>
+
+<script setup lang="ts">
+import BaseModal from '../modals/BaseModal.vue';
+import QrcodeVue from 'qrcode.vue'
+import { ref } from 'vue';
+
+defineProps<{ open: boolean }>()
+const link = ref('https://requlair.github.io/festivalbingo');
+
+const copyLink = async () => {
+    await navigator.clipboard.writeText(`Bingo mee met de Festival Bingo App: ${link.value}`)
+}
+
+const emit = defineEmits(['close'])
+const handleClose = () => {
+emit('close');
+}
+</script>
+
+<style scoped>
+.icon {
+    width: 24px;
+    height: 24px;
+}
+</style>
