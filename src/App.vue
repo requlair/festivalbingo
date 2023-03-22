@@ -1,11 +1,13 @@
 <template>
-  <div :style="{ backgroundImage: `url(${backgroundImg})` }" class="bg-fixed bg-[length:350px_350px] overflow-auto h-screen bg-center bg-no-repeat">
-      <header class="h-40 p-2 flex justify-center items-center">
-        <img class="max-h-40" alt="header-image" :src="headerImg"/>
-      </header>
-      <BingoGame/>
-  </div>
-
+      <div :style="{ backgroundImage: `url(${backgroundImg})`}" class="fixed opacity-20 w-screen h-screen bg-[length:350px_350px] bg-no-repeat bg-center"></div>
+      <div class="relative">
+        <header class="p-2 flex justify-center">
+          <div class="max-w-2xl">
+            <img alt="header-image" :src="headerImg"/>
+          </div>
+        </header>
+        <BingoGame/>
+      </div>
 </template>
 
 <script setup lang="ts">
@@ -25,3 +27,6 @@ watchEffect(() => {
   import(/* @vite-ignore */ `./assets/images/${getSettings.value.backgroundImage}.svg`).then((img) => backgroundImg.value = img.default);
 })
 </script>
+
+<style>
+</style>

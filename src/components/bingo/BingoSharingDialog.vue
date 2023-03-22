@@ -8,35 +8,22 @@
         </template>
         <template v-slot:body>
             <p class="w-80 py-2 break-words">
-                Ben je ook zo lekker aan het bingoën maar willen je vrienden/vriendinnen mee doen? Dat kan! Je kunt ze de QR code laten scannen of de app delen via social media of de link.
+                Ben je ook zo lekker aan het bingoën maar willen je vrienden/vriendinnen mee doen? Dat kan!
+                Je kunt ze de QR code laten scannen of de app delen via social media of de link.
             </p>
             <div class="flex justify-center">
-                <ShareNetwork
+                <ShareNetwork v-for="network in socials.networks"
                 class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
-                network="whatsapp"
-                :url="link"
-                title="Bingo mee met de Festival Bingo App"
-                description="Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!"
-                hashtags="FestivalBingo"
-                ><img class="icon" src="../../assets/images/WhatsApp-logo.svg"/></ShareNetwork>
-                <ShareNetwork
-                    class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
-                    network="facebook"
-                    :url="link"
-                    title="Bingo mee met de Festival Bingo App"
-                    description="Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!"
-                    hashtags="FestivalBingo"
-                ><img class="icon" src="../../assets/images/Facebook-logo.svg"/></ShareNetwork>
-                <ShareNetwork
-                    class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
-                    network="twitter"
-                    :url="link"
-                    title="Bingo mee met de Festival Bingo App"
-                    description="Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!"
-                    hashtags="FestivalBingo"
-                ><img class="icon" src="../../assets/images/Twitter-logo.svg"/></ShareNetwork>
+                :network="network.name"
+                :url="socials.link"
+                :title="socials.title"
+                :description="socials.description"
+                :hashtags="socials.hashTags"
+                >
+                    <img class="icon" :src="network.logo"/>
+                </ShareNetwork>
                 <button 
-                    class="border-2 w-36 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+                    class="px-2 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
                     @click="copyLink"
                 >Kopieer de link</button>
             </div>
@@ -52,8 +39,22 @@
 import BaseModal from '../modals/BaseModal.vue';
 import QrcodeVue from 'qrcode.vue'
 import { ref } from 'vue';
+import Facebook from '../../assets/images/facebook-logo.svg';
+import Whatsapp from '../../assets/images/whatsapp-logo.svg';
+import Twitter from '../../assets/images/twitter-logo.svg';
 
 defineProps<{ open: boolean }>()
+
+const socials = ref({
+    networks: [{ name: 'whatsapp', logo: Whatsapp }, 
+               { name: 'facebook', logo: Facebook },
+               { name: 'twitter', logo: Twitter }
+              ],
+    link: 'https://requlair.github.io/festivalbingo',
+    title: 'Bingo mee met de Festival Bingo App',
+    description: "Ga op de festivalweide op zoek naar de meeste extravagante figuren en vink ze af op je bingokaart!",
+    hashTags: 'FestivalBingo'
+})
 const link = ref('https://requlair.github.io/festivalbingo');
 
 const copyLink = async () => {
@@ -62,7 +63,7 @@ const copyLink = async () => {
 
 const emit = defineEmits(['close'])
 const handleClose = () => {
-emit('close');
+    emit('close');
 }
 </script>
 
