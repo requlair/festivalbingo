@@ -9,9 +9,9 @@
           />
           <Dropdown :items="inputOptions" :selectedItem="selectedInput" :onOptionClicked="handleInputSelect"/>
         </div>
-        <div>
+        <div class="flex">
           <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isSharingModalOpen = true">
-            &#9733;
+            <img src="../../assets/images/share-icon.svg"/>
           </button>
           <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isSettingsModalOpen = true">
             &#9881;
