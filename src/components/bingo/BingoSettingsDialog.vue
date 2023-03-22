@@ -3,7 +3,9 @@
         <template v-slot:header>
             <div class="w-80 flex justify-between">
                 <h2 class="w-[300px]">Festival Bingo Instellingen</h2>
-                <button @click="handleClose">&#10761;</button>
+                <button @click="handleClose">
+                    <img class="h-4" src="../../assets/images/cross-icon.svg"/>
+                </button>
             </div>
         </template>
         <template v-slot:body>
@@ -36,6 +38,9 @@ import { useSettingsStore } from '../../stores/useSettingsStore';
 import { DropdownItem, ThemeSettings } from '../../types/types';
 import Dropdown from '../dropdown/Dropdown.vue';
 import BaseModal from '../modals/BaseModal.vue';
+import Bingo from '../../assets/images/bingo-icon.png';
+import Paaspop from '../../assets/images/PP_Background.svg';
+import Lowlands from '../../assets/images/LL_Background.svg';
 
 const { updateSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
@@ -66,9 +71,9 @@ const themes = {
 } as const
 
 const dropdownOptions: DropdownItem[] = [
-    { icon: '&#9839;', label: 'Festival', value: 'festival' },
-    { icon: '&#9839;', label: 'Paaspop', value: 'paaspop' },
-    { icon: '&#9839;', label: 'Lowlands', value: 'lowlands' },
+    { icon: Bingo, label: 'Festival', value: 'festival' },
+    { icon: Paaspop, label: 'Paaspop', value: 'paaspop' },
+    { icon: Lowlands, label: 'Lowlands', value: 'lowlands' },
 ];
 const selectedOption = computed(() => {
     return dropdownOptions.filter((option) => option.value === getSettings.value.name)[0];

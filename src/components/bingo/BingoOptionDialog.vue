@@ -3,7 +3,9 @@
       <template v-slot:header>
         <div class="w-80 flex justify-between">
           <h2 class="w-[300px]">{{ card.text }}</h2>
-          <button @click="handleClose">&#10761;</button>
+          <button @click="handleClose">
+            <img class="h-4" src="../../assets/images/cross-icon.svg"/>
+          </button>
         </div>
       </template>
 
@@ -50,6 +52,9 @@ import MessagePad from '../MessagePad.vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import LZString from 'lz-string';
 import Dropdown from '../dropdown/Dropdown.vue';
+import Camera from '../../assets/images/camera-icon.svg'
+import Pencil from '../../assets/images/pencil-icon.svg'
+import Message from '../../assets/images/message-icon.svg'
   const props = defineProps<{
     open: boolean,
     card: BingoCard,
@@ -57,9 +62,9 @@ import Dropdown from '../dropdown/Dropdown.vue';
   const { updateCard } = useBingoCardsStore();
   const userInput = ref<typeof SignaturePad | typeof MessagePad | typeof CameraPad | null>(null);
   const inputOptions: DropdownItem[] = [
-    { icon: '&#128247;', label: 'Camera', value: 'image'},
-    { icon: '&#9997;', label: 'Krabbel', value: 'signature'},
-    { icon: '&#128172;', label: 'Bericht', value: 'message'},
+    { icon: Camera, label: 'Camera', value: 'image'},
+    { icon: Pencil, label: 'Krabbel', value: 'signature'},
+    { icon: Message, label: 'Bericht', value: 'message'},
   ];
   const selectedInput = ref(inputOptions[0]);
   function handleInputSelect (value: string) {

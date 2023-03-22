@@ -14,7 +14,7 @@
             <img src="../../assets/images/share-icon.svg"/>
           </button>
           <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isSettingsModalOpen = true">
-            &#9881;
+            <img src="../../assets/images/settings-icon.svg"/>
           </button>
         </div>
       </div>
@@ -54,6 +54,9 @@
   import { BingoCard, DropdownItem } from '../../types/types';
   import { storeToRefs } from 'pinia';
   import Dropdown from '../dropdown/Dropdown.vue';
+  import Checkmark from '../../assets/images/checkmark-icon.svg'
+  import CheckmarkNone from '../../assets/images/checkmark-none-icon.svg'
+  import CheckmarkDouble from '../../assets/images/checkmark-double-icon.svg'
 
   const { getCards } = storeToRefs(useBingoCardsStore());
   const selectedCard = ref<BingoCard | null>(null);
@@ -63,9 +66,9 @@
 
   const searchValue = ref('');
   const inputOptions: DropdownItem[] = [
-    { icon: '&#128994;', label: 'Alle', value: 'all' },
-    { icon: '&#9989;', label: 'Afgevinkt', value: 'checked' },
-    { icon: '&#129001;', label: 'Open', value: 'unchecked' },
+    { icon: CheckmarkDouble, label: 'Alle', value: 'all' },
+    { icon: Checkmark, label: 'Afgevinkt', value: 'checked' },
+    { icon: CheckmarkNone, label: 'Open', value: 'unchecked' },
   ]
   const selectedInput = ref(inputOptions[0]);
   function handleInputSelect (value: string) {

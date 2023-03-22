@@ -3,7 +3,9 @@
         <template v-slot:header>
             <div class="w-80 flex justify-between">
                 <h2 class="w-[300px]">Deel deze app!</h2>
-                <button @click="handleClose">&#10761;</button>
+                <button @click="handleClose">
+                    <img class="h-4" src="../../assets/images/cross-icon.svg"/>
+                </button>
             </div>
         </template>
         <template v-slot:body>
