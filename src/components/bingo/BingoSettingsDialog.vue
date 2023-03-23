@@ -38,9 +38,9 @@ import { useSettingsStore } from '../../stores/useSettingsStore';
 import { DropdownItem, ThemeSettings } from '../../types/types';
 import Dropdown from '../dropdown/Dropdown.vue';
 import BaseModal from '../modals/BaseModal.vue';
-import Bingo from '/bingo-icon.png';
-import Paaspop from '/paaspop-icon.svg';
-import Lowlands from '/lowlands-icon.svg';
+import BingoLogo from '../../assets/logos/bingo-logo.vue';
+import PaaspopLogo from '../../assets/logos/paaspop-logo.vue';
+import LowlandsLogo from '../../assets/logos/lowlands-logo.vue';
 
 const { updateSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
@@ -71,9 +71,9 @@ const themes = {
 } as const
 
 const dropdownOptions: DropdownItem[] = [
-    { logo: Bingo, label: 'Festival', value: 'festival' },
-    { logo: Paaspop, label: 'Paaspop', value: 'paaspop' },
-    { logo: Lowlands, label: 'Lowlands', value: 'lowlands' },
+    { logo: BingoLogo, label: 'Festival', value: 'festival' },
+    { logo: PaaspopLogo, label: 'Paaspop', value: 'paaspop' },
+    { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
 ];
 const selectedOption = computed(() => {
     return dropdownOptions.filter((option) => option.value === getSettings.value.name)[0];

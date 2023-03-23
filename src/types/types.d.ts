@@ -1,3 +1,5 @@
+import { Component } from "vue";
+
 export type BingoCard = {
     id: number,
     text: string,
@@ -9,7 +11,7 @@ export type DropdownItem = {
     label: string,
     value: string,
     icon?: string,
-    logo?: string,
+    logo?: Component,
 }
 
 export type ThemeSettings = {

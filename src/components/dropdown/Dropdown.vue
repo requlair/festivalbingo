@@ -7,7 +7,7 @@
         <div v-if="isOpen" ref="dropdown" class="absolute w-36 flex flex-col bg-white border-2 rounded-lg">
             <button v-for="item, index in items" :key="index" @click="handleItemClicked(item)" :class="[index !== 0 ? 'border-t-2' : '', 'flex items-center px-2 h-8']">
                <i v-if="item.icon" :class="[item.icon, 'mr-2']"></i>
-               <img v-if="item.logo" class="mr-2 w-6" :src="item.logo" />
+               <component class="w-6 mr-2" v-if="item.logo" :is="item.logo"></component>
                 {{ item.label }}
             </button>
         </div>
