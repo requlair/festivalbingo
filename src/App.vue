@@ -25,4 +25,23 @@ watchEffect(() => {
 </script>
 
 <style>
+@font-face {
+  font-family: 'Festival';
+  src: url('./assets/fonts//SuezOne-Regular.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lowlands';
+    src: url('./assets/fonts/LL22-HvH-Pixel-Regular.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'Paaspop';
+  src: url('./assets/fonts/Recoleta-Regular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
 </style>
