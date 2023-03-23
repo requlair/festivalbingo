@@ -35,40 +35,16 @@ import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import { useSettingsStore } from '../../stores/useSettingsStore';
-import { DropdownItem, ThemeSettings } from '../../types/types';
+import { DropdownItem, Settings } from '../../types/types';
 import Dropdown from '../dropdown/Dropdown.vue';
 import BaseModal from '../modals/BaseModal.vue';
 import BingoLogo from '../../assets/logos/bingo-logo.vue';
 import PaaspopLogo from '../../assets/logos/paaspop-logo.vue';
 import LowlandsLogo from '../../assets/logos/lowlands-logo.vue';
 
-const { updateSettings } = useSettingsStore();
+const { updateTheme } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
 const { resetCards } = useBingoCardsStore();
-
-const themes = {
-    festival: {
-        name: 'festival',
-        fontFamily: 'festival',
-        headerImage: 'FB_Header',
-        backgroundImage: 'FB_Background',
-        borderColor: '#000000'
-    } as ThemeSettings,
-    paaspop: {
-        name: 'paaspop',
-        fontFamily: 'paaspop',
-        headerImage: 'PP_Header',
-        backgroundImage: 'PP_Background',
-        borderColor: '#7e10ff'
-    } as ThemeSettings,
-    lowlands: {
-        name: 'lowlands',
-        fontFamily: 'lowlands',
-        headerImage: 'LL_Header',
-        backgroundImage: 'LL_Background',
-        borderColor: '#e30012'
-    } as ThemeSettings,
-} as const
 
 const dropdownOptions: DropdownItem[] = [
     { logo: BingoLogo, label: 'Festival', value: 'festival' },
@@ -76,10 +52,10 @@ const dropdownOptions: DropdownItem[] = [
     { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
 ];
 const selectedOption = computed(() => {
-    return dropdownOptions.filter((option) => option.value === getSettings.value.name)[0];
+    return dropdownOptions.filter((option) => option.value === getSettings.value.theme)[0];
 });
-function handleInputSelect (value: keyof typeof themes) {
-    updateSettings(themes[value]);
+function handleInputSelect (value: string) {
+    updateTheme(value);
 }
 const handleDelete = () => {
     resetCards();

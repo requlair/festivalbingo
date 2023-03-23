@@ -14,10 +14,6 @@ export type DropdownItem = {
     logo?: Component,
 }
 
-export type ThemeSettings = {
-    name: string;
-    fontFamily: string,
-    headerImage: string,
-    backgroundImage: string,
-    borderColor: string,
+export type Settings = {
+    theme: string;
 }
