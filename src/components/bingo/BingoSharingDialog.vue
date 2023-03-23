@@ -4,7 +4,7 @@
             <div class="w-80 flex justify-between">
                 <h2 class="w-[300px]">Deel deze app!</h2>
                 <button @click="handleClose">
-                    <img class="h-4" src="../../assets/images/cross-icon.svg"/>
+                    <i class="fas fa-xmark"></i>
                 </button>
             </div>
         </template>
@@ -22,7 +22,7 @@
                 :description="socials.description"
                 :hashtags="socials.hashTags"
                 >
-                    <img class="icon" :src="network.logo"/>
+                    <i :class="network.logo"/>
                 </ShareNetwork>
                 <button 
                     class="px-2 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
@@ -41,16 +41,13 @@
 import BaseModal from '../modals/BaseModal.vue';
 import QrcodeVue from 'qrcode.vue'
 import { ref } from 'vue';
-import Facebook from '../../assets/images/facebook-logo.svg';
-import Whatsapp from '../../assets/images/whatsapp-logo.svg';
-import Twitter from '../../assets/images/twitter-logo.svg';
 
 defineProps<{ open: boolean }>()
 
 const socials = ref({
-    networks: [{ name: 'whatsapp', logo: Whatsapp }, 
-               { name: 'facebook', logo: Facebook },
-               { name: 'twitter', logo: Twitter }
+    networks: [{ name: 'whatsapp', logo: 'fab fa-whatsapp' }, 
+               { name: 'facebook', logo: 'fab fa-facebook' },
+               { name: 'twitter', logo: 'fab fa-twitter' }
               ],
     link: 'https://requlair.github.io/festivalbingo',
     title: 'Bingo mee met de Festival Bingo App',
@@ -68,10 +65,3 @@ const handleClose = () => {
     emit('close');
 }
 </script>
-
-<style scoped>
-.icon {
-    width: 24px;
-    height: 24px;
-}
-</style>

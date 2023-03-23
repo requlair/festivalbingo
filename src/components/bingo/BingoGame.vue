@@ -11,10 +11,10 @@
         </div>
         <div class="flex">
           <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isSharingModalOpen = true">
-            <img src="../../assets/images/share-icon.svg"/>
+            <i class="fas fa-share-nodes"></i>
           </button>
           <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isSettingsModalOpen = true">
-            <img src="../../assets/images/settings-icon.svg"/>
+            <i class="fas fa-gear"></i>
           </button>
         </div>
       </div>
@@ -54,9 +54,6 @@
   import { BingoCard, DropdownItem } from '../../types/types';
   import { storeToRefs } from 'pinia';
   import Dropdown from '../dropdown/Dropdown.vue';
-  import Checkmark from '../../assets/images/checkmark-icon.svg'
-  import CheckmarkNone from '../../assets/images/checkmark-none-icon.svg'
-  import CheckmarkDouble from '../../assets/images/checkmark-double-icon.svg'
 
   const { getCards } = storeToRefs(useBingoCardsStore());
   const selectedCard = ref<BingoCard | null>(null);
@@ -66,9 +63,9 @@
 
   const searchValue = ref('');
   const inputOptions: DropdownItem[] = [
-    { icon: CheckmarkDouble, label: 'Alle', value: 'all' },
-    { icon: Checkmark, label: 'Afgevinkt', value: 'checked' },
-    { icon: CheckmarkNone, label: 'Open', value: 'unchecked' },
+    { icon: 'fas fa-filter-circle-xmark', label: 'Alle', value: 'all' },
+    { icon: 'fas fa-filter', label: 'Afgevinkt', value: 'checked' },
+    { icon: 'fas fa-filter', label: 'Open', value: 'unchecked' },
   ]
   const selectedInput = ref(inputOptions[0]);
   function handleInputSelect (value: string) {

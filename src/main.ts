@@ -4,6 +4,46 @@ import App from './App.vue';
 import { createPinia } from 'pinia';
 import VueSocialSharing from 'vue-social-sharing';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { 
+    faMagnifyingGlass,
+    faShareNodes,
+    faGear,
+    faXmark,
+    faFilter,
+    faFilterCircleXmark,
+    faChevronDown,
+    faCamera,
+    faPencil,
+    faMessage,
+    faClipboard
+} from '@fortawesome/free-solid-svg-icons';
+import {
+    faWhatsapp,
+    faFacebook,
+    faTwitter
+} from '@fortawesome/free-brands-svg-icons';
+
+library.add({
+    faMagnifyingGlass,
+    faShareNodes,
+    faGear,
+    faXmark,
+    faFilter,
+    faFilterCircleXmark,
+    faChevronDown,
+    faCamera,
+    faPencil,
+    faMessage,
+    faWhatsapp,
+    faFacebook,
+    faTwitter,
+    faClipboard
+});
+
+import { dom } from "@fortawesome/fontawesome-svg-core";
+dom.watch();
+
 createApp(App)
 .use(createPinia())
 .use(VueSocialSharing)

@@ -8,7 +8,8 @@ export type BingoCard = {
 export type DropdownItem = {
     label: string,
     value: string,
-    icon: string,
+    icon?: string,
+    logo?: string,
 }
 
 export type ThemeSettings = {

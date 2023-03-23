@@ -4,7 +4,7 @@
         <div class="w-80 flex justify-between">
           <h2 class="w-[300px]">{{ card.text }}</h2>
           <button @click="handleClose">
-            <img class="h-4" src="../../assets/images/cross-icon.svg"/>
+            <i class="fas fa-xmark"></i>
           </button>
         </div>
       </template>
@@ -52,9 +52,7 @@ import MessagePad from '../MessagePad.vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import LZString from 'lz-string';
 import Dropdown from '../dropdown/Dropdown.vue';
-import Camera from '../../assets/images/camera-icon.svg'
-import Pencil from '../../assets/images/pencil-icon.svg'
-import Message from '../../assets/images/message-icon.svg'
+
   const props = defineProps<{
     open: boolean,
     card: BingoCard,
@@ -62,9 +60,9 @@ import Message from '../../assets/images/message-icon.svg'
   const { updateCard } = useBingoCardsStore();
   const userInput = ref<typeof SignaturePad | typeof MessagePad | typeof CameraPad | null>(null);
   const inputOptions: DropdownItem[] = [
-    { icon: Camera, label: 'Camera', value: 'image'},
-    { icon: Pencil, label: 'Krabbel', value: 'signature'},
-    { icon: Message, label: 'Bericht', value: 'message'},
+    { icon: 'fas fa-camera', label: 'Camera', value: 'image'},
+    { icon: 'fas fa-pencil', label: 'Krabbel', value: 'signature'},
+    { icon: 'fas fa-message', label: 'Bericht', value: 'message'},
   ];
   const selectedInput = ref(inputOptions[0]);
   function handleInputSelect (value: string) {
