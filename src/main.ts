@@ -3,6 +3,7 @@ import './style.css';
 import App from './App.vue';
 import { createPinia } from 'pinia';
 import VueSocialSharing from 'vue-social-sharing';
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
@@ -53,4 +54,5 @@ dom.watch();
 createApp(App)
 .use(createPinia())
 .use(VueSocialSharing)
+.component('Icon', FontAwesomeIcon)
 .mount('#app');

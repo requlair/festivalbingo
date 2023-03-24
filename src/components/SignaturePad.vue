@@ -37,7 +37,7 @@
 		}
     const getInputString = () => {
         if (sig.value?.isEmpty()) {
-            return '';
+            return;
         }
         const imageString = LZString.compress(sig.value!.toDataURL("jpeg"));
         return imageString;

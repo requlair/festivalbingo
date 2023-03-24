@@ -8,7 +8,7 @@ export type BingoCard = {
 }
 
 export type DropdownItem = {
-    label: string,
+    label?: string,
     value: string,
     icon?: string,
     logo?: Component,

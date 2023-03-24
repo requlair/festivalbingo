@@ -19,6 +19,6 @@ import { useSettingsStore } from './stores/useSettingsStore';
 const { getTheme } = storeToRefs(useSettingsStore());
 
 watchEffect(() => {
-  document.querySelectorAll('body')[0].style.fontFamily = getTheme.value.fontFamily;
+  document.getElementById('app')!.style.fontFamily = getTheme.value.fontFamily;
 })
 </script>

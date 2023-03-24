@@ -69,9 +69,9 @@
     { icon: 'fas fa-filter', label: 'Afgevinkt', value: 'checked' },
     { icon: 'fas fa-filter', label: 'Open', value: 'unchecked' },
   ]
-  const selectedInput = ref(inputOptions[0]);
+  const selectedInput = ref({ icon: inputOptions[0].icon, value: inputOptions[0].value });
   function handleInputSelect (value: string) {
-    selectedInput.value = inputOptions.filter(option => option.value === value)[0];
+    selectedInput.value = inputOptions.filter(option => option.value === value).map((res) => { return { icon: res.icon, value: res.value };})[0];
   }
   const filteredBingoCards = computed(() => {
       return getCards.value.filter(card => {

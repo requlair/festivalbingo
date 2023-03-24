@@ -41,6 +41,9 @@ export const useSettingsStore = defineStore('settings', {
         },
         updateGridColumns(newGridColumns: string) {
             this.settings.gridColumns = newGridColumns;
+        },
+        resetSettings () {
+            this.settings = defaultSettings;
         }
     }
 });

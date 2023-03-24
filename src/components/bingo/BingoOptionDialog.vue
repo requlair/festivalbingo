@@ -70,8 +70,11 @@ import Dropdown from '../dropdown/Dropdown.vue';
   }
 
   const saveInput = async () => {
-    const newCard = props.card;
     const signature = await userInput.value!.getInputString();
+    if(!signature){
+      return;
+    }
+    const newCard = props.card;
     newCard.signature = signature;
     newCard.checked = true;
     updateCard(newCard);
