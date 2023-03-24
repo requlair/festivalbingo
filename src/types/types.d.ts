@@ -16,4 +16,5 @@ export type DropdownItem = {
 
 export type Settings = {
     theme: string;
+    gridColumns: string;
 }

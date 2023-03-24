@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="min-h-[400px] auto-rows-max mt-4 grid gap-4 grid-cols-2 md:grid-cols-4">
+      <div :class="['min-h-[400px] auto-rows-max mt-4 grid gap-4', getGrid]">
         <BingoOption v-for="card in filteredBingoCards" 
           :key="card.id" 
           :text="card.text" 
@@ -54,8 +54,10 @@
   import { BingoCard, DropdownItem } from '../../types/types';
   import { storeToRefs } from 'pinia';
   import Dropdown from '../dropdown/Dropdown.vue';
+  import { useSettingsStore } from '../../stores/useSettingsStore';
 
   const { getCards } = storeToRefs(useBingoCardsStore());
+  const { getGrid } = storeToRefs(useSettingsStore());
   const selectedCard = ref<BingoCard | null>(null);
   const isOptionModalOpen = ref(false);
   const isSharingModalOpen = ref(false);

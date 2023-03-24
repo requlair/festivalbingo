@@ -27,6 +27,9 @@ export const useSettingsStore = defineStore('settings', {
         getTheme(): typeof themes[keyof typeof themes] {
             const index = this.settings.theme as keyof typeof themes
             return themes[index];
+        },
+        getGrid(): string {
+            return this.settings.gridColumns;
         }
     },
     actions: {
@@ -35,12 +38,16 @@ export const useSettingsStore = defineStore('settings', {
         },
         updateTheme(newTheme: string) {
             this.settings.theme = newTheme;
+        },
+        updateGridColumns(newGridColumns: string) {
+            this.settings.gridColumns = newGridColumns;
         }
     }
 });
 
 const defaultSettings: Settings = {
-    theme: 'festival'
+    theme: 'festival',
+    gridColumns: 'grid-cols-2',
 };
 
 const themes = {
