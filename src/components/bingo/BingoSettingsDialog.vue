@@ -72,7 +72,6 @@ function handleThemeSelect (value: string) {
 }
 const handleReset = () => {
     if(confirm('Weet je het zeker?')){
-        console.log('ja');
         resetCards();
         resetSettings();
     }
