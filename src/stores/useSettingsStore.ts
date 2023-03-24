@@ -57,19 +57,19 @@ const themes = {
     'festival': {
         header: FestivalHeader,
         background: FestivalBackground,
-        fontFamily: 'festival',
+        fontFamily: 'Festival',
         color: '#000000'
     },
     'paaspop': {
         header: PaaspopHeader,
         background: PaaspopBackground,
-        fontFamily: 'paaspop',
+        fontFamily: 'Paaspop',
         color: '#7e10ff'
     },
     'lowlands': {
         header: LowlandsHeader,
         background: LowlandsBackground,
-        fontFamily: 'lowlands',
+        fontFamily: 'Lowlands',
         color: '#e30012'
     }
 };
