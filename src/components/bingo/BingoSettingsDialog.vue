@@ -71,8 +71,12 @@ function handleThemeSelect (value: string) {
     updateTheme(value);
 }
 const handleReset = () => {
-    resetCards();
-    resetSettings();
+    if(confirm('Weet je het zeker?')){
+        console.log('ja');
+        resetCards();
+        resetSettings();
+    }
+    return;
 }
 const handleGridSelect = (value: string) => {
     updateGridColumns(value);
