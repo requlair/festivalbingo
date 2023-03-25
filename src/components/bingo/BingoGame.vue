@@ -10,6 +10,9 @@
           <Dropdown :items="inputOptions" :selectedItem="selectedInput" :onOptionClicked="handleInputSelect"/>
         </div>
         <div class="flex">
+          <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isProgressModalOpen = true">
+            <i class="fas fa-trophy"></i>
+          </button>
           <button class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg" @click="isSharingModalOpen = true">
             <i class="fas fa-share-nodes"></i>
           </button>
@@ -33,6 +36,11 @@
         :card="selectedCard!"
         @close="isOptionModalOpen = false"
       ></BingoOptionDialog>
+      <BingoProgressDialog
+        :open="isProgressModalOpen" 
+        :card="selectedCard!"
+        @close="isProgressModalOpen = false"
+      ></BingoProgressDialog>
       <BingoSharingDialog
         :open="isSharingModalOpen"
         @close="isSharingModalOpen = false"
@@ -55,11 +63,13 @@
   import { storeToRefs } from 'pinia';
   import Dropdown from '../dropdown/Dropdown.vue';
   import { useSettingsStore } from '../../stores/useSettingsStore';
+import BingoProgressDialog from './BingoProgressDialog.vue';
 
   const { getCards } = storeToRefs(useBingoCardsStore());
   const { getGrid } = storeToRefs(useSettingsStore());
   const selectedCard = ref<BingoCard | null>(null);
   const isOptionModalOpen = ref(false);
+  const isProgressModalOpen = ref(false);
   const isSharingModalOpen = ref(false);
   const isSettingsModalOpen = ref(false);
 

@@ -21,6 +21,7 @@ import {
     fa2,
     fa3,
     fa4,
+    faTrophy,
 } from '@fortawesome/free-solid-svg-icons';
 import {
     faWhatsapp,
@@ -45,7 +46,8 @@ library.add({
     faClipboard,
     fa2,
     fa3,
-    fa4
+    fa4,
+    faTrophy,
 });
 
 import { dom } from "@fortawesome/fontawesome-svg-core";
