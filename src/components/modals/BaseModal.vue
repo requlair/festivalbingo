@@ -22,7 +22,7 @@ import { onClickOutside } from '@vueuse/core';
 import { ref } from 'vue';
   defineProps<{
     show: boolean
-    font: string
+    font?: string
   }>()
   const modal = ref(null);
   const emit = defineEmits(['close']);
