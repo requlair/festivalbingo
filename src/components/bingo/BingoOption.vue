@@ -1,7 +1,7 @@
 <template>
     <div>
         <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="49" :stroke="getTheme.color" stroke-width="2" fill="none"/>
+            <circle cx="50" cy="50" r="49" :stroke="getColor()" stroke-width="2" fill="none"/>
             <foreignObject height="70" width="70" x="15" y="15">
                 <div class="w-full h-full flex justify-center items-center">
                     <p class="text-center font-bold text-[50%]">{{ text }}</p>
@@ -21,4 +21,9 @@ defineProps({
     checked: { type: Boolean, required: true }
 })
 const { getTheme } = storeToRefs(useSettingsStore());
+
+const getColor = () => {
+    const colors = getTheme.value.colors;
+    return colors[Math.floor(Math.random() * colors.length)];
+}
 </script>

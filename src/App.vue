@@ -1,10 +1,10 @@
 <template>
-  <component :is="getTheme.background" class="fixed opacity-20 w-screen h-screen"></component>
-  <div class="relative">
+  <div class="fixed opacity-20 w-screen h-screen flex justify-center items-center">
+    <component :is="getTheme.background" class="w-[80vw] h-[80%]"></component>
+  </div>
+  <div class="relative" :style="{ fontFamily: getTheme.fontFamily }">
     <header class="p-2 flex justify-center">
-      <div class="max-w-2xl">
-        <img alt="header-image" :src="getTheme.header"/>
-      </div>
+        <img class="max-h-24 md:max-h-32 lg:max-h-40" alt="header-image" :src="getTheme.header"/>
     </header>
     <BingoGame/>
   </div>
@@ -12,13 +12,8 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { watchEffect } from 'vue';
 import BingoGame from './components/bingo/BingoGame.vue';
 import { useSettingsStore } from './stores/useSettingsStore';
 
 const { getTheme } = storeToRefs(useSettingsStore());
-
-watchEffect(() => {
-  document.getElementById('app')!.style.fontFamily = getTheme.value.fontFamily;
-})
 </script>

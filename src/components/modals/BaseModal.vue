@@ -1,6 +1,6 @@
 <template>
   <Teleport to="#modals">
-    <div v-if="show">
+    <div v-if="show" :style="{ fontFamily: font }">
       <div  class="fixed inset-0 bg-[rgb(0,0,0,.4)] flex items-center justify-center">
           <div ref="modal" class="bg-white rounded-lg px-4">
             <div class="mt-4">
@@ -22,6 +22,7 @@ import { onClickOutside } from '@vueuse/core';
 import { ref } from 'vue';
   defineProps<{
     show: boolean
+    font: string
   }>()
   const modal = ref(null);
   const emit = defineEmits(['close']);

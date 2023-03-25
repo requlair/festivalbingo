@@ -1,5 +1,5 @@
 <template>
-  <BaseModal :show="open" @close="handleClose">
+  <BaseModal :font="getTheme.fontFamily" :show="open" @close="handleClose">
       <template v-slot:header>
         <div class="w-80 flex justify-between">
           <h2 class="w-[300px]">{{ card.text }}</h2>
@@ -52,12 +52,15 @@ import MessagePad from '../MessagePad.vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import LZString from 'lz-string';
 import Dropdown from '../dropdown/Dropdown.vue';
+import { useSettingsStore } from '../../stores/useSettingsStore';
+import { storeToRefs } from 'pinia';
 
   const props = defineProps<{
     open: boolean,
     card: BingoCard,
   }>()
   const { updateCard } = useBingoCardsStore();
+  const { getTheme } = storeToRefs(useSettingsStore());
   const userInput = ref<typeof SignaturePad | typeof MessagePad | typeof CameraPad | null>(null);
   const inputOptions: DropdownItem[] = [
     { icon: 'fas fa-camera', label: 'Camera', value: 'image'},

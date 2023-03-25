@@ -58,19 +58,19 @@ const themes = {
         header: FestivalHeader,
         background: FestivalBackground,
         fontFamily: 'Festival',
-        color: '#000000'
+        colors: ['rgb(240,56,51)','rgb(36,110,181)','rgb(109,190,72)','rgb(249,206,68)','rgb(140,104,173)']
     },
     'paaspop': {
         header: PaaspopHeader,
         background: PaaspopBackground,
         fontFamily: 'Paaspop',
-        color: '#7e10ff'
+        colors: ['#7e10ff']
     },
     'lowlands': {
         header: LowlandsHeader,
         background: LowlandsBackground,
         fontFamily: 'Lowlands',
-        color: '#e30012'
+        colors: ['rgb(201,105,152)']
     }
 };
 
