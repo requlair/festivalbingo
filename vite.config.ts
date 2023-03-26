@@ -32,7 +32,6 @@ export default defineConfig({
         short_name: 'Festival Bingo',
         description: 'Speel bingo op een festival',
         theme_color: '#D3D3D3',
-        start_url: '/',
         icons: [
           {
             src: 'pwa-192x192.png',

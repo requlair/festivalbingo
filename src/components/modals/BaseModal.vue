@@ -2,7 +2,7 @@
   <Teleport to="#modals">
     <div v-if="show" :style="{ fontFamily: font }">
       <div  class="fixed inset-0 bg-[rgb(0,0,0,.4)] flex items-center justify-center">
-          <div ref="modal" class="bg-white rounded-lg p-4 m-4">
+          <div ref="modal" class="bg-white rounded-lg p-4 m-4 max-w-3xl">
             <div>
               <slot name="header"></slot>
             </div>

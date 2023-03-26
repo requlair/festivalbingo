@@ -9,7 +9,7 @@
             </div>
         </template>
         <template v-slot:body>
-            <p class="y-2 break-words max-w-3xl">
+            <p class="y-2 break-words">
                 Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
                 Ook kun je kiezen op hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
                 Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 
