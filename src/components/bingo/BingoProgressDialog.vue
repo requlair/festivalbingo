@@ -1,9 +1,9 @@
 <template>
     <BaseModal :font="getTheme.fontFamily" :show="open" @close="handleClose">
         <template v-slot:header>
-            <div class="w-80 flex justify-between">
-                <h2 class="w-[300px]">Behaalde Resultaten</h2>
-                <button @click="handleClose">
+            <div class="flex justify-between">
+                <h2>Behaalde Resultaten</h2>
+                <button class="ml-2" @click="handleClose">
                     <i class="fas fa-xmark"></i>
                 </button>
             </div>

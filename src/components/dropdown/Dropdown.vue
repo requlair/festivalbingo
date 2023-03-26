@@ -6,7 +6,7 @@
             {{ selectedItem.label }}
             <i class="ml-2 fas fa-chevron-down"></i>
         </button>
-        <div v-if="isOpen" class="absolute z-10 flex flex-col bg-white border-2 rounded-lg">
+        <div v-if="isOpen" class="absolute z-10 flex flex-col bg-white border-2 rounded-lg landscape:translate-y-[-8.5rem]">
             <button v-for="item, index in items" :key="index" @click="handleItemClicked(item)" :class="[index !== 0 ? 'border-t-2' : '', 'flex items-center px-2 h-8']">
                <i v-if="item.icon" :class="[item.icon, 'mr-2']"></i>
                <img v-if="item.logo" class="w-4 mr-2" :src="item.logo"/>

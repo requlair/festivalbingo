@@ -1,15 +1,15 @@
 <template>
     <BaseModal :show="open" @close="handleClose">
         <template v-slot:header>
-            <div class="w-80 flex justify-between">
-                <h2 class="w-[300px]">Deel deze app!</h2>
-                <button @click="handleClose">
+            <div class="flex justify-between">
+                <h2>Deel deze app!</h2>
+                <button class="ml-2" @click="handleClose">
                     <i class="fas fa-xmark"></i>
                 </button>
             </div>
         </template>
         <template v-slot:body>
-            <p class="w-80 py-2 break-words">
+            <p class="py-2 break-words">
                 Ben je ook zo lekker aan het bingoën maar willen je vrienden/vriendinnen mee doen? Dat kan!
                 Je kunt ze de QR code laten scannen of de app delen via social media of de link.
             </p>

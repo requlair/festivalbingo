@@ -1,15 +1,15 @@
 <template>
     <BaseModal :show="open" @close="handleClose">
         <template v-slot:header>
-            <div class="w-80 flex justify-between">
-                <h2 class="w-[300px]">Festival Bingo Instellingen</h2>
+            <div class="flex justify-between">
+                <h2>Festival Bingo Instellingen</h2>
                 <button @click="handleClose">
                     <i class="fas fa-xmark"></i>
                 </button>
             </div>
         </template>
         <template v-slot:body>
-            <p class="w-80 py-2 break-words">
+            <p class="y-2 break-words max-w-3xl">
                 Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
                 Ook kun je kiezen op hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
                 Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 

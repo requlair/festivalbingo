@@ -1,16 +1,16 @@
 <template>
   <BaseModal :font="getTheme.fontFamily" :show="open" @close="handleClose">
       <template v-slot:header>
-        <div class="w-80 flex justify-between">
-          <h2 class="w-[300px]">{{ card.text }}</h2>
-          <button @click="handleClose">
+        <div class="flex justify-between">
+          <h2>{{ card.text }}</h2>
+          <button class="ml-2" @click="handleClose">
             <i class="fas fa-xmark"></i>
           </button>
         </div>
       </template>
 
       <template v-slot:body>
-        <div class="w-80 h-60">
+        <div class="h-60 min-w-[20rem]">
           <div v-if="!card.checked" class="w-full h-full border-2 border-dashed rounded-lg">
             <CameraPad ref="userInput" v-if="selectedInput.value === 'image'" @change="saveInput"/>
             <SignaturePad ref="userInput" v-if="selectedInput.value === 'signature'"/>
@@ -21,7 +21,7 @@
               <img :src="LZString.decompress(card.signature)"/>
             </div>
             <div v-else>
-              <p class="w-80 py-2 px-3 break-words">{{ LZString.decompress(card.signature) }}</p>
+              <p class="py-2 px-3 break-words">{{ LZString.decompress(card.signature) }}</p>
             </div>
           </div>
         </div>

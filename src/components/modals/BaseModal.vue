@@ -2,14 +2,14 @@
   <Teleport to="#modals">
     <div v-if="show" :style="{ fontFamily: font }">
       <div  class="fixed inset-0 bg-[rgb(0,0,0,.4)] flex items-center justify-center">
-          <div ref="modal" class="bg-white rounded-lg px-4">
-            <div class="mt-4">
+          <div ref="modal" class="bg-white rounded-lg p-4 m-4">
+            <div>
               <slot name="header"></slot>
             </div>
             <div class="mt-4">
               <slot name="body"></slot>
             </div>
-            <div class="mb-4 mt-2">
+            <div class="mt-4">
               <slot name="footer"></slot>
             </div>
           </div>
