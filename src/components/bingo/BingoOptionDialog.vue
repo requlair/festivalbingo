@@ -10,7 +10,7 @@
       </template>
 
       <template v-slot:body>
-        <div class="h-60 min-w-[20rem]">
+        <div class="h-60 w-80">
           <div v-if="!card.checked" class="w-full h-full border-2 border-dashed rounded-lg">
             <CameraPad ref="userInput" v-if="selectedInput.value === 'image'" @change="saveInput"/>
             <SignaturePad ref="userInput" v-if="selectedInput.value === 'signature'"/>
