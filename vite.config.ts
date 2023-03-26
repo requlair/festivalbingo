@@ -10,10 +10,23 @@ export default defineConfig({
     vue(), 
     VitePWA({
       devOptions: {
-        enabled: false
+        enabled: true
       },
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      includeAssets: [
+        'favicon.ico',
+        'apple-touch-icon.png',
+        'masked-icon.svg',
+        '/images/PP_Header.png',
+        '/images/LL_Header.png',
+        '/images/FB_Header.png',
+        '/images/lowlands-logo.png',
+        '/images/paaspop-logo.png',
+        '/images/festival-logo.pmg',
+        '/fonts/SuezOne-Regular.ttf',
+        '/fonts/Recoleta-Regular.otf',
+        '/fonts/LL22-HvH-Pixel-Regular.ttf',
+      ],
       manifest: {
         name: 'Festival Bingo App',
         short_name: 'Festival Bingo',

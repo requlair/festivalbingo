@@ -11,7 +11,7 @@ export type DropdownItem = {
     label?: string,
     value: string,
     icon?: string,
-    logo?: Component,
+    logo?: string,
 }
 
 export type Settings = {
