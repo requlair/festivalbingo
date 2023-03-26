@@ -3,6 +3,14 @@ import { RemovableRef, useStorage } from '@vueuse/core';
 import { stringify, parse } from 'zipson';
 import { Settings } from '../types/types';
 
+import FestivalHeader from '/images/festival-header.png';
+import PaaspopHeader from '/images/paaspop-header.png';
+import LowlandsHeader from '/images/lowlands-header.png';
+
+import FestivalLogo from '/images/festival-logo.png';
+import PaaspopLogo from '/images/paaspop-logo.png';
+import LowlandsLogo from '/images/lowlands-logo.png';
+
 export const useSettingsStore = defineStore('settings', {
     state: (): State => ({
         settings: useStorage('settings', defaultSettings, undefined, {
@@ -47,20 +55,20 @@ const defaultSettings: Settings = {
 
 const themes = {
     'festival': {
-        header: '/images/FB_Header.png',
-        background: '/images/festival-logo.png',
+        header: FestivalHeader,
+        background: FestivalLogo,
         fontFamily: 'Festival',
         colors: ['rgb(240,56,51)','rgb(36,110,181)','rgb(109,190,72)','rgb(249,206,68)','rgb(140,104,173)']
     },
     'paaspop': {
-        header: '/images/PP_Header.png',
-        background: '/images/paaspop-logo.png',
+        header: PaaspopHeader,
+        background: PaaspopLogo,
         fontFamily: 'Paaspop',
         colors: ['#7e10ff']
     },
     'lowlands': {
-        header: '/images/LL_Header.png',
-        background: '/images/lowlands-logo.png',
+        header: LowlandsHeader,
+        background: LowlandsLogo,
         fontFamily: 'Lowlands',
         colors: ['rgb(201,105,152)']
     }

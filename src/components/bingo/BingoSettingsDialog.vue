@@ -44,14 +44,18 @@ import { DropdownItem } from '../../types/types';
 import Dropdown from '../dropdown/Dropdown.vue';
 import BaseModal from '../modals/BaseModal.vue';
 
+import FestivalLogo from '/images/festival-logo.png';
+import PaaspopLogo from '/images/paaspop-logo.png';
+import LowlandsLogo from '/images/lowlands-logo.png';
+
 const { updateTheme, updateGridColumns, resetSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
 const { resetCards } = useBingoCardsStore();
 
 const themeOptions: DropdownItem[] = [
-    { logo: '/images/festival-logo.png', label: 'Festival', value: 'festival' },
-    { logo: '/images/paaspop-logo.png', label: 'Paaspop', value: 'paaspop' },
-    { logo: '/images/lowlands-logo.png', label: 'Lowlands', value: 'lowlands' },
+    { logo: FestivalLogo, label: 'Festival', value: 'festival' },
+    { logo: PaaspopLogo, label: 'Paaspop', value: 'paaspop' },
+    { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
 ];
 const gridOptions: DropdownItem[] = [
     { icon: 'fas fa-2', label: 'Kolommen' , value: 'grid-cols-2' },
