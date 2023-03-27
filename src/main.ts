@@ -31,7 +31,10 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { 
+  faCircleQuestion,
+  faCopyright,
+ } from "@fortawesome/free-regular-svg-icons";
 
 library.add({
   faMagnifyingGlass,
@@ -56,6 +59,7 @@ library.add({
   faCircleQuestion,
   faMedal,
   faAward,
+  faCopyright
 });
 import { dom } from "@fortawesome/fontawesome-svg-core";
 dom.watch();

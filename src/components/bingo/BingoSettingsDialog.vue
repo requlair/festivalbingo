@@ -26,6 +26,12 @@
             :on-option-clicked="handleThemeSelect"
             :items="themeOptions"
           />
+          <p class="text-xs">
+            &thinsp;<i class="far fa-copyright" /> <a
+              :href="currentCopyright.source"
+              target="_blank"
+            >{{ currentCopyright.label }}</a>
+          </p>
         </div>
         <div>
           <h4>Kies je Layout:</h4>
@@ -71,6 +77,11 @@ const themeOptions: DropdownItem[] = [
     { logo: PaaspopLogo, label: 'Paaspop', value: 'paaspop' },
     { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
 ];
+const copyrightInfo = [
+  { name: 'festival', label: 'Let\'s play bingo', source: 'https://letsplaybingo.io/'},
+  { name: 'paaspop', label: 'Paaspop Festival', source: 'https://paaspop.nl/'},
+  { name: 'lowlands', label: 'Hansje v. Halem', source: 'https://hansje.net/'}
+];
 const gridOptions: DropdownItem[] = [
     { icon: 'fas fa-2', label: 'Kolommen' , value: 'grid-cols-2' },
     { icon: 'fas fa-3', label: 'Kolommen' , value: 'grid-cols-3' },
@@ -80,6 +91,9 @@ const gridOptions: DropdownItem[] = [
 const selectedTheme = computed(() => {
     return themeOptions.filter((option) => option.value === getSettings.value.theme)[0];
 });
+const currentCopyright = computed(() => {
+  return copyrightInfo.filter((option) => option.name === getSettings.value.theme)[0];
+})
 const selectedGrid = computed(() => {
     return gridOptions.filter((option) => option.value === getSettings.value.gridColumns)[0];
 })

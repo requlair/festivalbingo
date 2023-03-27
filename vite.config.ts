@@ -5,14 +5,14 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: { host: true },
+  server: { host: false },
   base: "/festivalbingo/",
   plugins: [
     vue(),
     eslintPlugin(),
     VitePWA({
       devOptions: {
-        enabled: true,
+        enabled: false,
       },
       registerType: "autoUpdate",
       includeAssets: [

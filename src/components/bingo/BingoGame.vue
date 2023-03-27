@@ -29,7 +29,7 @@
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
-          @click="isSettingsModalOpen = true"
+          @click="isInfoModalOpen = true"
         >
           <i class="far fa-circle-question" />
         </button>
@@ -65,6 +65,10 @@
       :open="isSharingModalOpen"
       @close="isSharingModalOpen = false"
     />
+    <BingoInfoDialog 
+      :open="isInfoModalOpen"
+      @close="isInfoModalOpen = false"
+    />
     <BingoSettingsDialog
       :open="isSettingsModalOpen"
       @close="isSettingsModalOpen = false"
@@ -78,6 +82,7 @@ import BingoOption from "./BingoOption.vue";
 import BingoOptionDialog from "./BingoOptionDialog.vue";
 import BingoProgressDialog from "./BingoProgressDialog.vue";
 import BingoSharingDialog from "./BingoSharingDialog.vue";
+import BingoInfoDialog from "./BingoInfoDialog.vue";
 import BingoSettingsDialog from "./BingoSettingsDialog.vue";
 
 import { computed, ref } from "vue";
@@ -92,6 +97,7 @@ const { getGrid } = storeToRefs(useSettingsStore());
 const isOptionModalOpen = ref(false);
 const isProgressModalOpen = ref(false);
 const isSharingModalOpen = ref(false);
+const isInfoModalOpen = ref(false);
 const isSettingsModalOpen = ref(false);
 
 const inputOptions: DropdownItem[] = [

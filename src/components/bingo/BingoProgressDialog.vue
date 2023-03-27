@@ -42,7 +42,7 @@
         >
           Nog niks? Ga een aan het werk joh!
         </p>
-        <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4 text-xs">
+        <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4 mb-2 text-xs">
           <div
             v-for="award in progress.awards"
             :key="award.checked"
