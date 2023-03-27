@@ -61,6 +61,7 @@ const gridOptions: DropdownItem[] = [
     { icon: 'fas fa-2', label: 'Kolommen' , value: 'grid-cols-2' },
     { icon: 'fas fa-3', label: 'Kolommen' , value: 'grid-cols-3' },
     { icon: 'fas fa-4', label: 'Kolommen' , value: 'grid-cols-4' },
+    { icon: 'fas fa-6', label: 'Kolommen' , value: 'grid-cols-6' },
 ]
 const selectedTheme = computed(() => {
     return themeOptions.filter((option) => option.value === getSettings.value.theme)[0];

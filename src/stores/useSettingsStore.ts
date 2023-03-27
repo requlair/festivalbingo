@@ -1,80 +1,85 @@
-import { defineStore } from 'pinia';
-import { RemovableRef, useStorage } from '@vueuse/core';
-import { stringify, parse } from 'zipson';
-import { Settings } from '../types/types';
+import { defineStore } from "pinia";
+import { RemovableRef, useStorage } from "@vueuse/core";
+import { stringify, parse } from "zipson";
+import { Settings } from "../types/types";
 
-import FestivalHeader from '/images/festival-header.png';
-import PaaspopHeader from '/images/paaspop-header.png';
-import LowlandsHeader from '/images/lowlands-header.png';
+import FestivalHeader from "/images/festival-header.png";
+import PaaspopHeader from "/images/paaspop-header.png";
+import LowlandsHeader from "/images/lowlands-header.png";
 
-import FestivalLogo from '/images/festival-logo.png';
-import PaaspopLogo from '/images/paaspop-logo.png';
-import LowlandsLogo from '/images/lowlands-logo.png';
+import FestivalLogo from "/images/festival-logo.png";
+import PaaspopLogo from "/images/paaspop-logo.png";
+import LowlandsLogo from "/images/lowlands-logo.png";
 
-export const useSettingsStore = defineStore('settings', {
-    state: (): State => ({
-        settings: useStorage('settings', defaultSettings, undefined, {
-            serializer: {
-                read: (value: string) => value ? parse(value) : null,
-                write: (value: Settings) => stringify(value),
-            },
-        }),
+export const useSettingsStore = defineStore("settings", {
+  state: (): State => ({
+    settings: useStorage("settings", defaultSettings, undefined, {
+      serializer: {
+        read: (value: string) => (value ? parse(value) : null),
+        write: (value: Settings) => stringify(value),
+      },
     }),
-    getters: {
-        getSettings(): Settings {
-            return this.settings;
-        },
-        getTheme(): typeof themes[keyof typeof themes] {
-            const index = this.settings.theme as keyof typeof themes
-            return themes[index];
-        },
-        getGrid(): string {
-            return this.settings.gridColumns;
-        }
+  }),
+  getters: {
+    getSettings(): Settings {
+      return this.settings;
     },
-    actions: {
-        updateSettings(newSettings: Settings) {
-            this.settings = newSettings;
-        },
-        updateTheme(newTheme: string) {
-            this.settings.theme = newTheme;
-        },
-        updateGridColumns(newGridColumns: string) {
-            this.settings.gridColumns = newGridColumns;
-        },
-        resetSettings () {
-            this.settings = defaultSettings;
-        }
-    }
+    getTheme(): typeof themes[keyof typeof themes] {
+      const index = this.settings.theme as keyof typeof themes;
+      return themes[index];
+    },
+    getGrid(): string {
+      return this.settings.gridColumns;
+    },
+  },
+  actions: {
+    updateSettings(newSettings: Settings) {
+      this.settings = newSettings;
+    },
+    updateTheme(newTheme: string) {
+      this.settings.theme = newTheme;
+    },
+    updateGridColumns(newGridColumns: string) {
+      this.settings.gridColumns = newGridColumns;
+    },
+    resetSettings() {
+      this.settings = defaultSettings;
+    },
+  },
 });
 
 const defaultSettings: Settings = {
-    theme: 'festival',
-    gridColumns: 'grid-cols-2',
+  theme: "festival",
+  gridColumns: "grid-cols-2",
 };
 
 const themes = {
-    'festival': {
-        header: FestivalHeader,
-        background: FestivalLogo,
-        fontFamily: 'Festival',
-        colors: ['rgb(240,56,51)','rgb(36,110,181)','rgb(109,190,72)','rgb(249,206,68)','rgb(140,104,173)']
-    },
-    'paaspop': {
-        header: PaaspopHeader,
-        background: PaaspopLogo,
-        fontFamily: 'Paaspop',
-        colors: ['#7e10ff']
-    },
-    'lowlands': {
-        header: LowlandsHeader,
-        background: LowlandsLogo,
-        fontFamily: 'Lowlands',
-        colors: ['rgb(201,105,152)']
-    }
+  festival: {
+    header: FestivalHeader,
+    background: FestivalLogo,
+    fontFamily: "Festival",
+    colors: [
+      "rgb(240,56,51)",
+      "rgb(36,110,181)",
+      "rgb(109,190,72)",
+      "rgb(249,206,68)",
+      "rgb(140,104,173)",
+    ],
+  },
+  paaspop: {
+    header: PaaspopHeader,
+    background: PaaspopLogo,
+    fontFamily: "Paaspop",
+    colors: ["#7e10ff"],
+  },
+  lowlands: {
+    header: LowlandsHeader,
+    background: LowlandsLogo,
+    fontFamily: "Lowlands",
+    colors: ["rgb(201,105,152)"],
+  },
 };
 
 interface State {
-    settings: RemovableRef<Settings>
+  settings: RemovableRef<Settings>;
 }
-
