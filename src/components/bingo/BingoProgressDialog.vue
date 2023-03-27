@@ -1,14 +1,21 @@
 <template>
-  <BaseModal :font="getTheme.fontFamily" :show="open" @close="handleClose">
-    <template v-slot:header>
+  <BaseModal
+    :font="getTheme.fontFamily"
+    :show="open"
+    @close="handleClose"
+  >
+    <template #header>
       <div class="flex justify-between">
         <h2>Behaalde Resultaten</h2>
-        <button class="ml-2" @click="handleClose">
-          <i class="fas fa-xmark"></i>
+        <button
+          class="ml-2"
+          @click="handleClose"
+        >
+          <i class="fas fa-xmark" />
         </button>
       </div>
     </template>
-    <template v-slot:body>
+    <template #body>
       <h3>Voortgang</h3>
       <div class="w-full bg-gray-200 rounded-full h-2.5">
         <div
@@ -17,7 +24,7 @@
             background: getTheme.colors[0],
             width: `${progress.percentage}%`,
           }"
-        ></div>
+        />
       </div>
       <p>{{ progress.checked }} / {{ progress.total }} afgevinkt</p>
     </template>

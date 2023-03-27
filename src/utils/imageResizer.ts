@@ -55,7 +55,10 @@ class Resizer {
     width = newHeightWidth.width;
     height = newHeightWidth.height;
 
-    const ctx = canvas.getContext("2d")!;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      return;
+    }
     ctx.fillStyle = "rgba(0, 0, 0, 0)";
     ctx.fillRect(0, 0, width, height);
 
@@ -68,8 +71,7 @@ class Resizer {
     return canvas.toDataURL(`image/${compressFormat}`, qualityDecimal);
   }
 
-  static b64toByteArrays(b64Data: string, contentType: string) {
-    contentType = contentType || "image/jpeg";
+  static b64toByteArrays(b64Data: string) {
     const sliceSize = 512;
 
     const byteCharacters = atob(
@@ -92,13 +94,13 @@ class Resizer {
     return byteArrays;
   }
   static b64toBlob(b64Data: string, contentType: string) {
-    const byteArrays = this.b64toByteArrays(b64Data, contentType);
+    const byteArrays = this.b64toByteArrays(b64Data);
     const blob = new Blob(byteArrays, { type: contentType });
     return blob;
   }
 
   static b64toFile(b64Data: string, fileName: string, contentType: string) {
-    const byteArrays = this.b64toByteArrays(b64Data, contentType);
+    const byteArrays = this.b64toByteArrays(b64Data);
     const file = new File(byteArrays, fileName, { type: contentType });
     return file;
   }
@@ -126,7 +128,7 @@ class Resizer {
           const image = new Image();
           image.src = reader.result as string;
           image.onload = function () {
-            var resizedDataUrl = Resizer.resizeImage(
+            const resizedDataUrl = Resizer.resizeImage(
               image,
               maxWidth,
               maxHeight,
@@ -135,21 +137,26 @@ class Resizer {
               compressFormat,
               quality
             );
+            if (!resizedDataUrl) {
+              return;
+            }
             const contentType = `image/${compressFormat}`;
             switch (outputType) {
-              case "blob":
+              case "blob": {
                 const blob = Resizer.b64toBlob(resizedDataUrl, contentType);
                 responseUriFunc(blob);
                 break;
-              case "base64":
+              }
+              case "base64": {
                 responseUriFunc(resizedDataUrl);
                 break;
-              case "file":
-                let fileName = file.name;
-                let fileNameWithoutFormat = fileName
+              }
+              case "file": {
+                const fileName = file.name;
+                const fileNameWithoutFormat = fileName
                   .toString()
                   .replace(/(png|jpeg|jpg|webp)$/i, "");
-                let newFileName = fileNameWithoutFormat.concat(
+                const newFileName = fileNameWithoutFormat.concat(
                   compressFormat.toString()
                 );
                 const newFile = Resizer.b64toFile(
@@ -159,12 +166,14 @@ class Resizer {
                 );
                 responseUriFunc(newFile);
                 break;
-              default:
+              }
+              default: {
                 responseUriFunc(resizedDataUrl);
+              }
             }
           };
         };
-        reader.onerror = (error) => {
+        reader.onerror = () => {
           throw Error();
         };
       }

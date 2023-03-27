@@ -1,5 +1,8 @@
 <template>
-  <canvas ref="sigCanvas" class="w-full h-full"></canvas>
+  <canvas
+    ref="sigCanvas"
+    class="w-full h-full"
+  />
 </template>
 
 <script setup lang="ts">
@@ -18,11 +21,18 @@ const resize = () => {
   const ratio = Math.max(window.devicePixelRatio || 1, 1);
   canvas.width = canvas.offsetWidth * ratio;
   canvas.height = canvas.offsetHeight * ratio;
-  canvas.getContext("2d")!.scale(ratio, ratio);
+  const ctx = canvas.getContext("2d");
+  if(!ctx) {
+    return;
+  }
+  ctx.scale(ratio, ratio);
 };
 
 const draw = () => {
-  const canvas = sigCanvas.value!;
+  if(!sigCanvas.value) {
+    return;
+  }
+  const canvas = sigCanvas.value;
   sig.value = new SignaturePad(canvas, { backgroundColor: "rgb(255,255,255)" });
   resize();
 };
@@ -32,13 +42,15 @@ onMounted(() => {
 });
 
 const clear = () => {
-  sig.value!.clear();
+  if(sig.value){
+    sig.value.clear();
+  }
 };
 const getInputString = () => {
-  if (sig.value?.isEmpty()) {
+  if(!sig.value || sig.value.isEmpty()){
     return;
   }
-  const imageString = LZString.compress(sig.value!.toDataURL("jpeg"));
+  const imageString = LZString.compress(sig.value.toDataURL("jpeg"));
   return imageString;
 };
 defineExpose({

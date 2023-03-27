@@ -1,32 +1,39 @@
 <template>
-  <BaseModal :font="getTheme.fontFamily" :show="open" @close="handleClose">
-    <template v-slot:header>
+  <BaseModal
+    :font="getTheme.fontFamily"
+    :show="open"
+    @close="handleClose"
+  >
+    <template #header>
       <div class="flex justify-between">
         <h2>{{ card.text }}</h2>
-        <button class="ml-2" @click="handleClose">
-          <i class="fas fa-xmark"></i>
+        <button
+          class="ml-2"
+          @click="handleClose"
+        >
+          <i class="fas fa-xmark" />
         </button>
       </div>
     </template>
 
-    <template v-slot:body>
+    <template #body>
       <div class="h-60 w-80">
         <div
           v-if="!card.checked"
           class="w-full h-full border-2 border-dashed rounded-lg"
         >
           <CameraPad
-            ref="userInput"
             v-if="selectedInput.value === 'image'"
+            ref="userInput"
             @change="saveInput"
           />
           <SignaturePad
-            ref="userInput"
             v-if="selectedInput.value === 'signature'"
+            ref="userInput"
           />
           <MessagePad
-            ref="userInput"
             v-if="selectedInput.value === 'message'"
+            ref="userInput"
           />
         </div>
         <div v-else>
@@ -34,7 +41,7 @@
             v-if="LZString.decompress(card.signature).startsWith('data:image')"
             class="flex justify-center items-center"
           >
-            <img :src="LZString.decompress(card.signature)" />
+            <img :src="LZString.decompress(card.signature)">
           </div>
           <div v-else>
             <p class="py-2 px-3 break-words">
@@ -45,16 +52,19 @@
       </div>
     </template>
 
-    <template v-slot:footer>
-      <div v-if="!card.checked" class="flex">
+    <template #footer>
+      <div
+        v-if="!card.checked"
+        class="flex"
+      >
         <Dropdown
-          :selectedItem="selectedInput"
+          :selected-item="selectedInput"
           :items="inputOptions"
-          :onOptionClicked="handleInputSelect"
+          :on-option-clicked="handleInputSelect"
         />
         <button
-          class="border-2 px-2 py1 w-24 h-9 rounded-lg"
           v-if="selectedInput.value !== 'image'"
+          class="border-2 px-2 py1 w-24 h-9 rounded-lg"
           type="submit"
           @click="saveInput"
         >
@@ -78,7 +88,7 @@ import BaseModal from "../modals/BaseModal.vue";
 import CameraPad from "../CameraPad.vue";
 import SignaturePad from "../SignaturePad.vue";
 import MessagePad from "../MessagePad.vue";
-import Dropdown from "../dropdown/Dropdown.vue";
+import Dropdown from "../dropdown/AppDropdown.vue";
 
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
@@ -112,7 +122,10 @@ function handleInputSelect(value: string) {
 }
 
 const saveInput = async () => {
-  const signature = await userInput.value!.getInputString();
+  if(!userInput.value) {
+    return;
+  }
+  const signature = await userInput.value.getInputString();
   if (!signature) {
     return;
   }

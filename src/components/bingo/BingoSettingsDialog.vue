@@ -1,38 +1,52 @@
 <template>
-    <BaseModal :show="open" @close="handleClose">
-        <template v-slot:header>
-            <div class="flex justify-between">
-                <h2>Festival Bingo Instellingen</h2>
-                <button @click="handleClose">
-                    <i class="fas fa-xmark"></i>
-                </button>
-            </div>
-        </template>
-        <template v-slot:body>
-            <p class="y-2 break-words">
-                Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
-                Ook kun je kiezen op hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
-                Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 
-                Hieronder kun je de Bingo App resetten. <strong>Let op,</strong> al je input wordt dan verwijdert!
-            </p>
-            <div class="grid gap-4 grid-cols-2 mt-4">
-                <div class="mr-2">
-                    <h3>Kies je Thema</h3>
-                    <Dropdown :selectedItem="selectedTheme" :onOptionClicked="handleThemeSelect" :items="themeOptions"/>
-                </div>
-                <div class="flex flex-col">
-                    <h3>Reset App</h3>
-                    <button class="border-2 px-2 py1 w-24 h-9 rounded-lg" @click="handleReset">
-                        Reset
-                    </button>
-                </div>
-                <div>
-                    <h3>Kies je Layout</h3>
-                    <Dropdown :selectedItem="selectedGrid" :onOptionClicked="handleGridSelect" :items="gridOptions"/>
-                </div>
-            </div>
-        </template>
-    </BaseModal>
+  <BaseModal
+    :show="open"
+    @close="handleClose"
+  >
+    <template #header>
+      <div class="flex justify-between">
+        <h2>Festival Bingo Instellingen</h2>
+        <button @click="handleClose">
+          <i class="fas fa-xmark" />
+        </button>
+      </div>
+    </template>
+    <template #body>
+      <p class="y-2 break-words">
+        Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
+        Ook kun je kiezen op hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
+        Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 
+        Hieronder kun je de Bingo App resetten. <strong>Let op,</strong> al je input wordt dan verwijdert!
+      </p>
+      <div class="grid gap-4 grid-cols-2 mt-4">
+        <div class="mr-2">
+          <h3>Kies je Thema</h3>
+          <Dropdown
+            :selected-item="selectedTheme"
+            :on-option-clicked="handleThemeSelect"
+            :items="themeOptions"
+          />
+        </div>
+        <div class="flex flex-col">
+          <h3>Reset App</h3>
+          <button
+            class="border-2 px-2 py1 w-24 h-9 rounded-lg"
+            @click="handleReset"
+          >
+            Reset
+          </button>
+        </div>
+        <div>
+          <h3>Kies je Layout</h3>
+          <Dropdown
+            :selected-item="selectedGrid"
+            :on-option-clicked="handleGridSelect"
+            :items="gridOptions"
+          />
+        </div>
+      </div>
+    </template>
+  </BaseModal>
 </template>
 
 <script setup lang="ts">
@@ -41,7 +55,7 @@ import { computed } from 'vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import { useSettingsStore } from '../../stores/useSettingsStore';
 import { DropdownItem } from '../../types/types';
-import Dropdown from '../dropdown/Dropdown.vue';
+import Dropdown from '../dropdown/AppDropdown.vue';
 import BaseModal from '../modals/BaseModal.vue';
 
 import FestivalLogo from '/images/festival-logo.png';

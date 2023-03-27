@@ -3,15 +3,15 @@
     <div class="flex justify-between">
       <div class="flex">
         <input
+          v-model="searchValue"
           class="outline-0 border-2 bg-white px-2 py-1 w-32 h-9 rounded-lg"
           type="text"
           placeholder="&#128269; Zoeken..."
-          v-model="searchValue"
-        />
+        >
         <Dropdown
           :items="inputOptions"
-          :selectedItem="selectedInput"
-          :onOptionClicked="handleInputSelect"
+          :selected-item="selectedInput"
+          :on-option-clicked="handleInputSelect"
         />
       </div>
       <div class="flex">
@@ -19,25 +19,25 @@
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
           @click="isProgressModalOpen = true"
         >
-          <i class="fas fa-trophy"></i>
+          <i class="fas fa-trophy" />
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
           @click="isSharingModalOpen = true"
         >
-          <i class="fas fa-share-nodes"></i>
+          <i class="fas fa-share-nodes" />
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
           @click="isSettingsModalOpen = true"
         >
-          <i class="far fa-circle-question"></i>
+          <i class="far fa-circle-question" />
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
           @click="isSettingsModalOpen = true"
         >
-          <i class="fas fa-gear"></i>
+          <i class="fas fa-gear" />
         </button>
       </div>
     </div>
@@ -56,25 +56,25 @@
       :open="isOptionModalOpen"
       :card="selectedCard!"
       @close="isOptionModalOpen = false"
-    ></BingoOptionDialog>
+    />
     <BingoProgressDialog
       :open="isProgressModalOpen"
       :card="selectedCard!"
       @close="isProgressModalOpen = false"
-    ></BingoProgressDialog>
+    />
     <BingoSharingDialog
       :open="isSharingModalOpen"
       @close="isSharingModalOpen = false"
-    ></BingoSharingDialog>
+    />
     <BingoSettingsDialog
       :open="isSettingsModalOpen"
       @close="isSettingsModalOpen = false"
-    ></BingoSettingsDialog>
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import Dropdown from "../dropdown/Dropdown.vue";
+import Dropdown from "../dropdown/AppDropdown.vue";
 import BingoOption from "./BingoOption.vue";
 import BingoOptionDialog from "./BingoOptionDialog.vue";
 import BingoProgressDialog from "./BingoProgressDialog.vue";

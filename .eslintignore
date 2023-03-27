@@ -1,0 +1,5 @@
+.vscode
+dev-dist
+dist
+node-modules
+.eslintrc.cjs

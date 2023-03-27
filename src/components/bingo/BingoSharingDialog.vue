@@ -1,14 +1,20 @@
 <template>
-  <BaseModal :show="open" @close="handleClose">
-    <template v-slot:header>
+  <BaseModal
+    :show="open"
+    @close="handleClose"
+  >
+    <template #header>
       <div class="flex justify-between">
         <h2>Deel deze app!</h2>
-        <button class="ml-2" @click="handleClose">
-          <i class="fas fa-xmark"></i>
+        <button
+          class="ml-2"
+          @click="handleClose"
+        >
+          <i class="fas fa-xmark" />
         </button>
       </div>
     </template>
-    <template v-slot:body>
+    <template #body>
       <p class="py-2 break-words">
         Ben je ook zo lekker aan het bingoën maar willen je vrienden/vriendinnen
         mee doen? Dat kan! Je kunt ze de QR code laten scannen of de app delen
@@ -16,7 +22,8 @@
       </p>
       <div class="flex justify-center">
         <ShareNetwork
-          v-for="network in socials.networks"
+          v-for="network, index in socials.networks"
+          :key="index"
           class="border-2 w-9 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
           :network="network.name"
           :url="socials.link"
