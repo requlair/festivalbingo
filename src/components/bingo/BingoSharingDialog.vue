@@ -7,7 +7,6 @@
       <div class="flex justify-between">
         <h2>Deel deze app!</h2>
         <button
-          class="ml-2"
           @click="handleClose"
         >
           <i class="fas fa-xmark" />
@@ -16,7 +15,7 @@
     </template>
     <template #body>
       <p class="py-2 break-words">
-        Ben je ook zo lekker aan het bingoën maar willen je vrienden/vriendinnen
+        Ben je ook zo lekker aan het bingoën maar willen je vrienden & vriendinnen
         mee doen? Dat kan! Je kunt ze de QR code laten scannen of de app delen
         via social media of de link.
       </p>

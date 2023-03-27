@@ -5,18 +5,31 @@
 @font-face {
   font-family: "Festival";
   src: url("/fonts/SuezOne-Regular.ttf");
-  font-weight: 200;
   font-style: normal;
 }
 @font-face {
   font-family: "Paaspop";
   src: url("/fonts/Recoleta-Regular.otf");
-  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Lowlands";
   src: url("/fonts/LL22-HvH-Pixel-Regular.ttf");
-  font-weight: 200;
   font-style: normal;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.50rem;
+}
+
+h3 {
+  font-size: 1.25rem;
 }

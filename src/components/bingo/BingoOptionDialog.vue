@@ -6,7 +6,7 @@
   >
     <template #header>
       <div class="flex justify-between">
-        <h2>{{ card.text }}</h2>
+        <h3>{{ card.text }}</h3>
         <button
           class="ml-2"
           @click="handleClose"
@@ -17,10 +17,10 @@
     </template>
 
     <template #body>
-      <div class="h-60 w-80">
+      <div class="flex justify-center">
         <div
           v-if="!card.checked"
-          class="w-full h-full border-2 border-dashed rounded-lg"
+          class="h-60 w-80 border-2 border-dashed rounded-lg"
         >
           <CameraPad
             v-if="selectedInput.value === 'image'"
@@ -39,7 +39,6 @@
         <div v-else>
           <div
             v-if="LZString.decompress(card.signature).startsWith('data:image')"
-            class="flex justify-center items-center"
           >
             <img :src="LZString.decompress(card.signature)">
           </div>
@@ -146,4 +145,3 @@ const handleClose = () => {
   emit("close");
 };
 </script>
-<style></style>

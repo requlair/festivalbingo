@@ -16,7 +16,7 @@
         y="15"
       >
         <div class="w-full h-full flex justify-center items-center">
-          <p class="text-center break-words font-bold text-[50%]">{{ text }}</p>
+          <p class="text-center text-[50%]">{{ text }}</p>
         </div>
       </foreignObject>
       <path

@@ -23,6 +23,8 @@ import {
   fa4,
   fa6,
   faTrophy,
+  faMedal,
+  faAward
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faWhatsapp,
@@ -52,6 +54,8 @@ library.add({
   fa6,
   faTrophy,
   faCircleQuestion,
+  faMedal,
+  faAward,
 });
 import { dom } from "@fortawesome/fontawesome-svg-core";
 dom.watch();

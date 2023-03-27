@@ -14,35 +14,35 @@
     <template #body>
       <p class="y-2 break-words">
         Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
-        Ook kun je kiezen op hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
+        Ook kun je kiezen over hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
         Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 
         Hieronder kun je de Bingo App resetten. <strong>Let op,</strong> al je input wordt dan verwijdert!
       </p>
-      <div class="grid gap-4 grid-cols-2 mt-4">
-        <div class="mr-2">
-          <h3>Kies je Thema</h3>
+      <div class="flex grid grid-rows-2 grid-flow-col gap-4 mt-4 landscape:grid-rows-1">
+        <div>
+          <h4>Kies je Thema:</h4>
           <Dropdown
             :selected-item="selectedTheme"
             :on-option-clicked="handleThemeSelect"
             :items="themeOptions"
           />
         </div>
+        <div>
+          <h4>Kies je Layout:</h4>
+          <Dropdown
+            :selected-item="selectedGrid"
+            :on-option-clicked="handleGridSelect"
+            :items="gridOptions"
+          />
+        </div>
         <div class="flex flex-col">
-          <h3>Reset App</h3>
+          <h4>Reset de Bingo App:</h4>
           <button
             class="border-2 px-2 py1 w-24 h-9 rounded-lg"
             @click="handleReset"
           >
             Reset
           </button>
-        </div>
-        <div>
-          <h3>Kies je Layout</h3>
-          <Dropdown
-            :selected-item="selectedGrid"
-            :on-option-clicked="handleGridSelect"
-            :items="gridOptions"
-          />
         </div>
       </div>
     </template>

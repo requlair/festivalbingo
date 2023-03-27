@@ -59,7 +59,6 @@
     />
     <BingoProgressDialog
       :open="isProgressModalOpen"
-      :card="selectedCard!"
       @close="isProgressModalOpen = false"
     />
     <BingoSharingDialog
