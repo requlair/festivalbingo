@@ -36,7 +36,10 @@
             ref="userInput"
           />
         </div>
-        <div v-else>
+        <div
+          v-else
+          class="h-60 w-80"
+        >
           <div
             v-if="LZString.decompress(card.signature).startsWith('data:image')"
           >

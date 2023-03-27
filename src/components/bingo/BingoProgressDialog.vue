@@ -28,14 +28,21 @@
             }"
           />
         </div>
-        <p>{{ progress.checked }} / {{ progress.total }} categorieën afgevinkt</p>
+        <p class="text-xs">
+          {{ progress.checked }} / {{ progress.total }} categorieën afgevinkt
+        </p>
       </div>
+    </template>
+    <template #footer>
+      <h3>Prestaties:</h3>
       <div class="mt-2">
-        <h3>Prestaties:</h3>
-        <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4">
-          <p v-if="!progress.checked">
-            Nog niks? Ga een aan het werk joh!
-          </p>
+        <p
+          v-if="!progress.checked"
+          class="text-xs"
+        >
+          Nog niks? Ga een aan het werk joh!
+        </p>
+        <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4 text-xs">
           <div
             v-for="award in progress.awards"
             :key="award.checked"
