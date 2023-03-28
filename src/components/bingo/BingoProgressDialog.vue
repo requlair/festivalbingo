@@ -40,7 +40,7 @@
           v-if="!progress.checked"
           class="text-xs"
         >
-          Nog niks? Ga een aan het werk joh!
+          Nog niks? Ga eens aan het werk joh!
         </p>
         <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4 mb-2 text-xs">
           <div
