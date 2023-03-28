@@ -15,6 +15,9 @@ export default defineConfig({
         enabled: false,
       },
       registerType: "autoUpdate",
+      workbox: {
+        cleanupOutdatedCaches: true
+      },
       includeAssets: [
         "favicon.ico",
         "apple-touch-icon.png",
