@@ -19,7 +19,7 @@
       </p>
       <div class="mt-2">
         <h3>Voortgang:</h3>
-        <div class="mt-2 w-full bg-gray-200 rounded-full h-2.5">
+        <div class="my-2 w-full bg-gray-200 rounded-full h-2.5">
           <div
             class="h-2.5 rounded-full"
             :style="{

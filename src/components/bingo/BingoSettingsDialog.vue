@@ -16,7 +16,7 @@
         Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
         Ook kun je kiezen over hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
         Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 
-        Hieronder kun je de Bingo App resetten. <strong>Let op,</strong> al je input wordt dan verwijdert!
+        Hieronder kun je de Bingo App resetten.
       </p>
       <div class="flex grid grid-rows-2 grid-flow-col gap-4 mt-4 landscape:grid-rows-1">
         <div>
@@ -78,9 +78,9 @@ const themeOptions: DropdownItem[] = [
     { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
 ];
 const copyrightInfo = [
-  { name: 'festival', label: 'Let\'s play bingo', source: 'https://letsplaybingo.io/'},
+  { name: 'festival', label: 'Lejon Bergman', source: 'https://linkedin.com/in/lejon-bergman'},
   { name: 'paaspop', label: 'Paaspop Festival', source: 'https://paaspop.nl/'},
-  { name: 'lowlands', label: 'Hansje v. Halem', source: 'https://hansje.net/'}
+  { name: 'lowlands', label: 'Hansje van Halem', source: 'https://www.hansje.net/Lowlands-2022'}
 ];
 const gridOptions: DropdownItem[] = [
     { icon: 'fas fa-2', label: 'Kolommen' , value: 'grid-cols-2' },

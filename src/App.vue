@@ -17,14 +17,15 @@
       >
     </header>
     <BingoGame />
-  </div>
-  <footer class="container px-2 mx-auto h-24 md:h-32 lg:h-52 flex items-center">
-    <div>
-      <div>
-        <i class="far fa-copyright" />&thinsp;<span>Lejon Bergman</span>
+    <footer class="container px-2 mx-auto h-24 md:h-32 lg:h-52 flex items-center">
+      <div class="text-sm">
+        <i class="far fa-copyright" />&thinsp;<a
+          href="https://linkedin.com/in/lejon-bergman"
+          target="_blank"
+        >Lejon Bergman</a>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script setup lang="ts">
