@@ -5,6 +5,7 @@
 @font-face {
   font-family: "Festival";
   src: url("/fonts/BeatsterDemo-KLMA.ttf");
+  size-adjust: 135%;
   font-style: normal;
 }
 @font-face {
@@ -15,6 +16,7 @@
 @font-face {
   font-family: "Lowlands";
   src: url("/fonts/LL22-HvH-Pixel-Regular.ttf");
+  size-adjust: 90%;
   font-style: normal;
 }
 
