@@ -58,13 +58,7 @@ const themes = {
     header: FestivalHeader,
     background: FestivalLogo,
     fontFamily: "Festival",
-    colors: [
-      "rgb(240,56,51)",
-      "rgb(36,110,181)",
-      "rgb(109,190,72)",
-      "rgb(249,206,68)",
-      "rgb(140,104,173)",
-    ],
+    colors: ["rgb(47, 116, 184)"],
   },
   paaspop: {
     header: PaaspopHeader,
