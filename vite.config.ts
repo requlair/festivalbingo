@@ -13,6 +13,7 @@ export default defineConfig({
       devOptions: {
         enabled: false,
       },
+      base: "/festivalbingo/",
       registerType: "autoUpdate",
       workbox: {
         cleanupOutdatedCaches: true
