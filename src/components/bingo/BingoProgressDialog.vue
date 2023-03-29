@@ -1,19 +1,13 @@
 <template>
   <BaseModal
-    :font="getTheme.fontFamily"
     :show="open"
     @close="handleClose"
   >
     <template #header>
-      <div class="flex justify-between">
-        <h2>Behaalde Resultaten</h2>
-        <button @click="handleClose">
-          <i class="fas fa-xmark" />
-        </button>
-      </div>
+      <h2>Behaalde Resultaten</h2>
     </template>
     <template #body>
-      <p class="y-2 break-words">
+      <p>
         Bekijk hier hoeveel Bingo categorieën je al hebt afgevinkt. Lig je goed op schema?
         Wie van jouw vrienden heeft de volste bingokaart? Ben jij de absolute Festival Bingo koning(in)?
       </p>
@@ -23,13 +17,13 @@
           <div
             class="h-2.5 rounded-full"
             :style="{
-              background: getTheme.colors[0],
+              background: '#38AD33',
               width: `${progress.percentage}%`,
             }"
           />
         </div>
         <p class="text-xs">
-          {{ progress.checked }} / {{ progress.total }} categorieën afgevinkt
+          <span class="text-base bold">{{ progress.checked }} / {{ progress.total }}</span> categorieën afgevinkt
         </p>
       </div>
     </template>
@@ -42,7 +36,7 @@
         >
           Nog niks? Ga eens aan het werk joh!
         </p>
-        <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4 mb-2 text-xs">
+        <div class="flex grid grid-cols-1 landscape:grid-cols-3 gap-4 text-xs">
           <div
             v-for="award in progress.awards"
             :key="award.checked"
@@ -65,10 +59,8 @@ import BaseModal from "../modals/BaseModal.vue";
 import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useBingoCardsStore } from "../../stores/useBingoCardStore";
-import { useSettingsStore } from "../../stores/useSettingsStore";
 
 defineProps<{ open: boolean }>();
-const { getTheme } = storeToRefs(useSettingsStore());
 const { getCards } = storeToRefs(useBingoCardsStore());
 
 const achievements = [

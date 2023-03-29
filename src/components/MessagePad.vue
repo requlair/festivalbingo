@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import LZString from "lz-string";
 
 const textArea = ref<HTMLTextAreaElement | null>(null);
 const getInputString = () => {
@@ -19,8 +18,7 @@ const getInputString = () => {
   if (!text) {
     return;
   }
-  const inputString = LZString.compress(text);
-  return inputString;
+  return text;
 };
 defineExpose({
   getInputString,

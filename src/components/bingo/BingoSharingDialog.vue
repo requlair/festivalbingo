@@ -4,14 +4,7 @@
     @close="handleClose"
   >
     <template #header>
-      <div class="flex justify-between">
-        <h2>Deel deze app!</h2>
-        <button
-          @click="handleClose"
-        >
-          <i class="fas fa-xmark" />
-        </button>
-      </div>
+      <h2>Deel deze app!</h2>
     </template>
     <template #body>
       <div class="grid landscape:grid-cols-2">

@@ -4,21 +4,18 @@
     @close="handleClose"
   >
     <template #header>
-      <div class="flex justify-between">
-        <h2>Festival Bingo Instellingen</h2>
-        <button @click="handleClose">
-          <i class="fas fa-xmark" />
-        </button>
-      </div>
+      <h2>Festival Bingo Instellingen</h2>
     </template>
     <template #body>
-      <p class="y-2 break-words">
-        Verander hieronder het thema van de Festival Bingo App naar het thema van het festival waar je nu bent!
-        Ook kun je kiezen over hoeveel kolommen je de Festival Bingo App weergegeven wilt hebben.
-        Wil je de Bingo opnieuw spelen maar heb je nog de data van een vorig festival in je App? 
-        Hieronder kun je de Bingo App resetten.
+      <p>
+        Verander hieronder het thema van de Festival Bingo naar het thema van het festival waar je nu bent!
+        Ook kun je kiezen over hoeveel kolommen je de Festival Bingo weergegeven wilt hebben.
+        Wil je de Festival Bingo opnieuw spelen maar heb je nog de data van een vorig festival in de app? 
+        Hieronder kun je de app resetten.
       </p>
-      <div class="flex grid grid-rows-2 grid-flow-col gap-4 mt-4 landscape:grid-rows-1">
+    </template>
+    <template #footer>
+      <div class="grid grid-rows-2 grid-flow-col gap-4 landscape:grid-rows-1">
         <div>
           <h4>Kies je Thema:</h4>
           <Dropdown
@@ -26,11 +23,15 @@
             :on-option-clicked="handleThemeSelect"
             :items="themeOptions"
           />
-          <p class="text-xs">
+          <p
+            v-for="copyright, index in currentCopyright.copyright"
+            :key="index"
+            class="text-xs"
+          >
             &thinsp;<i class="far fa-copyright" /> <a
-              :href="currentCopyright.source"
+              :href="copyright.source"
               target="_blank"
-            >{{ currentCopyright.label }}</a>
+            >{{ copyright.label }}</a>
           </p>
         </div>
         <div>
@@ -42,12 +43,12 @@
           />
         </div>
         <div class="flex flex-col">
-          <h4>Reset de Bingo App:</h4>
+          <h4>Reset de app:</h4>
           <button
             class="border-2 px-2 py1 w-24 h-9 rounded-lg"
             @click="handleReset"
           >
-            Reset
+            Reset app
           </button>
         </div>
       </div>
@@ -78,9 +79,12 @@ const themeOptions: DropdownItem[] = [
     { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
 ];
 const copyrightInfo = [
-  { name: 'festival', label: 'Lejon Bergman', source: 'https://linkedin.com/in/lejon-bergman'},
-  { name: 'paaspop', label: 'Paaspop Festival', source: 'https://paaspop.nl/'},
-  { name: 'lowlands', label: 'Hansje van Halem', source: 'https://www.hansje.net/Lowlands-2022'}
+  { name: 'festival', copyright: [ { label: 'Lejon Bergman', source: 'https://www.linkedin.com/in/lejon-bergman' } ]},
+  { name: 'paaspop', copyright: [{ label: 'Paaspop Festival', source: 'https://www.paaspop.nl/'} ]},
+  { name: 'lowlands', copyright: [
+    { label: 'Hansje van Halem', source: 'https://www.hansje.net/Lowlands-2022'},
+    { label: 'Lowlands Festival', source: 'https://www.lowlands.nl'}
+   ]}
 ];
 const gridOptions: DropdownItem[] = [
     { icon: 'fas fa-2', label: 'Kolommen' , value: 'grid-cols-2' },

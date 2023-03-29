@@ -9,8 +9,14 @@
           ref="modal"
           class="bg-white rounded-lg p-4 m-4 max-w-3xl"
         >
-          <div>
+          <div class="flex justify-between">
             <slot name="header" />
+            <button
+              class="ml-2"
+              @click="handleClose"
+            >
+              <i class="fas fa-xmark" />
+            </button>
           </div>
           <div class="mt-4">
             <slot name="body" />

@@ -17,22 +17,36 @@
       >
     </header>
     <BingoGame />
-    <footer class="container px-2 mx-auto h-24 md:h-32 lg:h-52 flex items-center">
-      <div class="text-sm">
-        <i class="far fa-copyright" />&thinsp;<a
-          href="https://linkedin.com/in/lejon-bergman"
-          target="_blank"
-        >Lejon Bergman</a>
-      </div>
-    </footer>
   </div>
+  <footer class="relative container px-2 mx-auto h-24 md:h-32 lg:h-52 flex items-center">
+    <div class="text-sm">
+      <i class="far fa-copyright" />&thinsp;<a
+        href="https://linkedin.com/in/lejon-bergman"
+        target="_blank"
+      ><span class="ml-1">Lejon Bergman</span></a>
+      <a
+        class="ml-1 cursor-pointer"
+        @click="isDisclaimerModalOpen = true"
+      >
+        Disclaimer
+      </a>
+    </div>
+  </footer>
+  <DisclaimerDialog
+    :open="isDisclaimerModalOpen"
+    @close="isDisclaimerModalOpen = false"
+  />
 </template>
 
 <script setup lang="ts">
 import BingoGame from "./components/bingo/BingoGame.vue";
+import DisclaimerDialog from "./components/DisclaimerDialog.vue";
 
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useSettingsStore } from "./stores/useSettingsStore";
 
+
 const { getTheme } = storeToRefs(useSettingsStore());
+const isDisclaimerModalOpen = ref(false);
 </script>

@@ -4,30 +4,28 @@
     @close="handleClose"
   >
     <template #header>
-      <div class="flex justify-between">
-        <h2>Over de Festival Bingo App</h2>
-        <button
-          @click="handleClose"
-        >
-          <i class="fas fa-xmark" />
-        </button>
-      </div>
+      <h2>Over de Festival Bingo App</h2>
     </template>
     <template #body>
-      <p class="text-sm">
-        De Festival Bingo App is een app om het wel bekende bingo spel te spelen op een festival. In plaats van nummers afvinken,
-        moet je bij Festival Bingo op zoek naar personen die aan de categorie voldoen. Laat die persoon de categorie in de app afvinken
+      <p>
+        Festival Bingo is een spel geïnspireerd op het welbekende bingo. In plaats van nummers afvinken,
+        moet je bij Festival Bingo op een festival zoeken naar personen die aan de bingo categorieën voldoen. Laat die persoon de categorie in de app afvinken
         door het achterlaten van een selfie, krabbel of berichtje. In totaal zijn er 54 categorieën om af te vinken.
       </p>
-      <h4 class="my-2">
-        Menu's
-      </h4>
-      <ul class="text-xs">
-        <li><i class="fa fa-trophy" />&nbsp;Resultaten menu, hier zie je hoe ver je al bent.</li>
-        <li><i class="fa fa-share-nodes" />&nbsp;Delen menu, hier kun je de Fesitval Bingo App gemakkelijk met anderen delen.</li>
-        <li><i class="far fa-circle-question" />&nbsp;Info menu, hier ben je nu.</li>
-        <li><i class="fa fa-gear" />&nbsp;Instellingen menu, hier kun je de app aanpassen naar de look and feel die jij wilt.</li>
-      </ul>
+      <p class="italic mt-1">
+        Festival Bingo slaat alle ingevoerde selfies, krabbels, berichtjesen instellingen alleen op jouw device op. Alle data blijft dus alleen 
+        van jouw en je privacy is gewaardborgd.
+      </p>
+    </template>
+    <template #footer>
+      <h3>
+        Let's get started!
+      </h3>
+      <p class="my-1">
+        Je kunt natuurlijk meteen beginnen met het spelen van Festival Bingo, maar om het nóg leuker te maken kun je de look and feel van de 
+        app aanpassen in het <i class="fa fa-gear" /> instellingen menu, kun je je progressie bekijken in het <i class="fa fa-trophy" />
+        prestaties menu en kun de app delen via het <i class="fa fa-share-nodes" /> delen menu,
+      </p>
     </template>
   </BaseModal>
 </template>

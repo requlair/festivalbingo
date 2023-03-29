@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { RemovableRef, useStorage } from "@vueuse/core";
 import { stringify, parse } from "zipson";
+import LZString from 'lz-string';
 import bingoCards from "../assets/data/bingo-data.json";
 import { BingoCard } from "../types/types";
 
@@ -8,8 +9,8 @@ export const useBingoCardsStore = defineStore("bingoCards", {
   state: (): State => ({
     cards: useStorage("bingo-cards", () => bingoCards, undefined, {
       serializer: {
-        read: (value: string) => (value ? parse(value) : null),
-        write: (value: BingoCard[]) => stringify(value),
+        read: (value: string) => (value ? parse(LZString.decompress(value)) : null),
+        write: (value: BingoCard[]) => LZString.compress(stringify(value)),
       },
     }),
   }),

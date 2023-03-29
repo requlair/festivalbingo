@@ -36,7 +36,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Resizer from "../utils/imageResizer";
-import LZString from "lz-string";
 
 const fileInput = ref<HTMLInputElement | null>(null);
 const getInputString = async () => {
@@ -52,10 +51,9 @@ const getInputString = async () => {
     return "";
   }
   const [imageFile] = uploadedFiles;
-  console.log(imageFile);
   const imageString = await new Promise<string>((resolve) => {
     Resizer.imageFileResizer(imageFile, 320, 240, "JPEG", 80, (uri) => {
-      resolve(LZString.compress(uri as string));
+      resolve(uri as string);
     });
   });
   return imageString;

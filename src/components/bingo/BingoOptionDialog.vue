@@ -5,50 +5,42 @@
     @close="handleClose"
   >
     <template #header>
-      <div class="flex justify-between">
-        <h3>{{ card.text }}</h3>
-        <button
-          class="ml-2"
-          @click="handleClose"
-        >
-          <i class="fas fa-xmark" />
-        </button>
-      </div>
+      <h3>{{ card.text }}</h3>
     </template>
 
     <template #body>
       <div class="flex justify-center">
-        <div
-          v-if="!card.checked"
-          class="h-60 w-80 border-2 border-dashed rounded-lg"
-        >
-          <CameraPad
-            v-if="selectedInput.value === 'image'"
-            ref="userInput"
-            @change="saveInput"
-          />
-          <SignaturePad
-            v-if="selectedInput.value === 'signature'"
-            ref="userInput"
-          />
-          <MessagePad
-            v-if="selectedInput.value === 'message'"
-            ref="userInput"
-          />
-        </div>
-        <div
-          v-else
-          class="h-60 w-80"
-        >
+        <div class="h-60 w-80">
           <div
-            v-if="LZString.decompress(card.signature).startsWith('data:image')"
+            v-if="!card.checked"
+            class="w-full h-full border-2 border-dashed rounded-lg"
           >
-            <img :src="LZString.decompress(card.signature)">
+            <CameraPad
+              v-if="selectedInput.value === 'image'"
+              ref="userInput"
+              @change="saveInput"
+            />
+            <SignaturePad
+              v-if="selectedInput.value === 'signature'"
+              ref="userInput"
+            />
+            <MessagePad
+              v-if="selectedInput.value === 'message'"
+              ref="userInput"
+            />
           </div>
           <div v-else>
-            <p class="py-2 px-3 break-words">
-              {{ LZString.decompress(card.signature) }}
-            </p>
+            <div
+              v-if="card.signature.startsWith('data:image')"
+              class="flex justify-center"
+            >
+              <img :src="card.signature">
+            </div>
+            <div v-else>
+              <p class="py-2 px-3 break-words">
+                {{ card.signature }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -97,7 +89,6 @@ import { storeToRefs } from "pinia";
 import { useBingoCardsStore } from "../../stores/useBingoCardStore";
 import { useSettingsStore } from "../../stores/useSettingsStore";
 import { BingoCard, DropdownItem } from "../../types/types";
-import LZString from "lz-string";
 
 const props = defineProps<{
   open: boolean;

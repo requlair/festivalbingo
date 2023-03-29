@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import SignaturePad from "signature_pad";
-import LZString from "lz-string";
 
 const sig = ref<SignaturePad | null>(null);
 const sigCanvas = ref<HTMLCanvasElement | null>(null);
@@ -50,7 +49,7 @@ const getInputString = () => {
   if(!sig.value || sig.value.isEmpty()){
     return;
   }
-  const imageString = LZString.compress(sig.value.toDataURL("jpeg"));
+  const imageString =sig.value.toDataURL("jpeg");
   return imageString;
 };
 defineExpose({
