@@ -2,7 +2,7 @@
   "name": "festival-bingo",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://requlair.github.io/festivalbingo",
+  "homepage": "https://requlair.github.io",
   "type": "module",
   "scripts": {
     "dev": "vite",

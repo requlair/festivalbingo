@@ -37,7 +37,7 @@
         </div>
         <div class="flex justify-center portrait:mt-4">
           <qrcode-vue
-            value="https://requlair.github.io/festivalbingo"
+            value="https://www.festivalbingo.app"
             level="H"
             :size="150"
           />
@@ -55,7 +55,7 @@ import { ref } from "vue";
 
 defineProps<{ open: boolean }>();
 
-const link = ref("https://requlair.github.io/festivalbingo");
+const link = ref("https://www.festivalbingo.app");
 const socials = ref({
   networks: [
     { name: "whatsapp", logo: "fab fa-whatsapp" },
