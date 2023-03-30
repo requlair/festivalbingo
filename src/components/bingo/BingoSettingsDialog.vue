@@ -68,6 +68,8 @@ import BaseModal from '../modals/BaseModal.vue';
 import FestivalLogo from '/images/festival-logo.png';
 import PaaspopLogo from '/images/paaspop-logo.png';
 import LowlandsLogo from '/images/lowlands-logo.png';
+import DTRHLogo from '/images/dtrh-logo.png';
+import PinkpopLogo from '/images/pinkpop-logo.png';
 
 const { updateTheme, updateGridColumns, resetSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
@@ -77,14 +79,18 @@ const themeOptions: DropdownItem[] = [
     { logo: FestivalLogo, label: 'Festival', value: 'festival' },
     { logo: PaaspopLogo, label: 'Paaspop', value: 'paaspop' },
     { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
+    { logo: DTRHLogo, label: 'DTRH', value: 'dtrh' },
+    { logo: PinkpopLogo, label: 'Pinkpop', value: 'pinkpop' },
 ];
 const copyrightInfo = [
-  { name: 'festival', copyright: [ { label: 'Lejon Bergman', source: 'https://www.linkedin.com/in/lejon-bergman' } ]},
-  { name: 'paaspop', copyright: [{ label: 'Paaspop Festival', source: 'https://www.paaspop.nl/'} ]},
+  { name: 'festival', copyright: [{ label: 'Lejon Bergman', source: 'https://www.linkedin.com/in/lejon-bergman' }]},
+  { name: 'paaspop', copyright: [{ label: 'Paaspop Festival', source: 'https://www.paaspop.nl/'}]},
   { name: 'lowlands', copyright: [
     { label: 'Hansje van Halem', source: 'https://www.hansje.net/Lowlands-2022'},
     { label: 'Lowlands Festival', source: 'https://www.lowlands.nl'}
-   ]}
+  ]},
+  { name: 'dtrh', copyright: [{ label: 'Down The Rabbit Hole Festival', source: 'https://downtherabbithole.nl/'}]},
+  { name: 'pinkpop', copyright: [{ label: 'Pinkpop Festival', source: 'https://pinkpop.nl/'}]}
 ];
 const gridOptions: DropdownItem[] = [
     { icon: 'fas fa-2', label: 'Kolommen' , value: 'grid-cols-2' },

@@ -18,6 +18,19 @@
   src: url("/fonts/LL22-HvH-Pixel-Regular.ttf");
   font-style: normal;
 }
+@font-face {
+  font-family: "DTRH";
+  src: url("fonts/Ogg-Regular.woff2");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pinkpop";
+  src: url("fonts/pinkpop.woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 h1, h2, h3, h4 {
   font-weight: bold;

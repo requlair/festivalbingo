@@ -6,10 +6,14 @@ import { Settings } from "../types/types";
 import FestivalHeader from "/images/festival-header.png";
 import PaaspopHeader from "/images/paaspop-header.png";
 import LowlandsHeader from "/images/lowlands-header.png";
+import DTRHHeader from "/images/dtrh-header.png";
+import PinkpopHeader from "/images/pinkpop-header.png";
 
 import FestivalLogo from "/images/festival-logo.png";
 import PaaspopLogo from "/images/paaspop-logo.png";
 import LowlandsLogo from "/images/lowlands-logo.png";
+import DTRHLogo from "/images/dtrh-logo.png";
+import PinkpopLogo from "/images/pinkpop-logo.png";
 
 export const useSettingsStore = defineStore("settings", {
   state: (): State => ({
@@ -72,6 +76,18 @@ const themes = {
     fontFamily: "Lowlands",
     colors: ["rgb(201,105,152)"],
   },
+  dtrh: {
+    header: DTRHHeader,
+    background: DTRHLogo,
+    fontFamily: 'DTRH',
+    colors: ['#FF92A5'],
+  },
+  pinkpop: {
+    header: PinkpopHeader,
+    background: PinkpopLogo,
+    fontFamily: 'Pinkpop',
+    colors: ['#130092']
+  }
 };
 
 interface State {
