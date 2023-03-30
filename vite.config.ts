@@ -6,19 +6,15 @@ import { VitePWA } from "vite-plugin-pwa";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: { host: true },
+  base: '/festivalbingo/',
   plugins: [
     vue(),
     eslintPlugin(),
     VitePWA({
       devOptions: {
-        enabled: false,
+        enabled: true,
       },
-      base: "/festivalbingo/",
       registerType: "autoUpdate",
-      // workbox: {
-      //   cleanupOutdatedCaches: true,
-      //   globPatterns: ["**/*.{js,ts,css,html,ico,png,txt,ttf,otf,woff2,vue,json}"],
-      // },
       includeAssets: [
         "favicon.ico",
         "apple-touch-icon.png",
