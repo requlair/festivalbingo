@@ -15,9 +15,10 @@ export default defineConfig({
       },
       base: "/festivalbingo/",
       registerType: "autoUpdate",
-      workbox: {
-        cleanupOutdatedCaches: true
-      },
+      // workbox: {
+      //   cleanupOutdatedCaches: true,
+      //   globPatterns: ["**/*.{js,ts,css,html,ico,png,txt,ttf,otf,woff2,vue,json}"],
+      // },
       includeAssets: [
         "favicon.ico",
         "apple-touch-icon.png",
@@ -28,7 +29,7 @@ export default defineConfig({
         "/images/lowlands-logo.png",
         "/images/paaspop-logo.png",
         "/images/festival-logo.png",
-        "/fonts/SuezOne-Regular.ttf",
+        "/fonts/BeatsterDemo-KLMA.ttf",
         "/fonts/Recoleta-Regular.otf",
         "/fonts/LL22-HvH-Pixel-Regular.ttf",
       ],
