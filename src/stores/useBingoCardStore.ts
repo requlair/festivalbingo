@@ -7,7 +7,7 @@ import { BingoCard } from "../types/types";
 
 export const useBingoCardsStore = defineStore("bingoCards", {
   state: (): State => ({
-    cards: useStorage("bingo-cards", () => bingoCards, undefined, {
+    cards: useStorage("bingo-cards", bingoCards, undefined, {
       serializer: {
         read: (value: string) => (value ? parse(LZString.decompress(value)) : null),
         write: (value: BingoCard[]) => LZString.compress(stringify(value)),

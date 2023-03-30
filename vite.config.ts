@@ -6,7 +6,6 @@ import { VitePWA } from "vite-plugin-pwa";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: { host: true },
-  base: '/festivalbingo/',
   plugins: [
     vue(),
     eslintPlugin(),
@@ -34,8 +33,6 @@ export default defineConfig({
         short_name: "Festival Bingo",
         description: "Speel bingo op een festival",
         theme_color: "#D3D3D3",
-        start_url: "./festivalbingo",
-        scope: ".",
         icons: [
           {
             src: "pwa-192x192.png",
