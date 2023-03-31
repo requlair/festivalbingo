@@ -20,6 +20,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@vueuse/core": "^9.13.0",
     "lz-string": "^1.5.0",
+    "pdfmake": "^0.2.7",
     "pinia": "^2.0.0-rc.10",
     "qrcode.vue": "^3.3.4",
     "signature_pad": "^4.1.5",
@@ -28,6 +29,7 @@
     "zipson": "^0.2.12"
   },
   "devDependencies": {
+    "@types/pdfmake": "^0.2.2",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "@vitejs/plugin-vue": "^4.0.0",

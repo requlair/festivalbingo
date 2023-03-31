@@ -11,8 +11,8 @@
         <div class="flex flex-col">
           <p class="py-2 break-words">
             Ben je ook zo lekker aan het bingoën maar willen je vrienden & vriendinnen
-            mee doen? Dat kan! Je kunt ze de QR code laten scannen of de app delen
-            via social media of de link.
+            mee doen? Dat kan! Deel de app via social media of laat de QR code scannen!
+            Daarnaast kun je ook je afgevinkte categorieën delen door de PDF door te sturen. 
           </p>
           <div class="flex">
             <ShareNetwork
@@ -34,6 +34,14 @@
               Kopieer de link
             </button>
           </div>
+          <div>
+            <button 
+              class="px-2 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+              @click="generatePDF(getTheme.fontFamily, getTheme.colors[0], filledInCards)"
+            >
+              Deel de PDF
+            </button>
+          </div>
         </div>
         <div class="flex justify-center portrait:mt-4">
           <qrcode-vue
@@ -51,9 +59,18 @@
 import BaseModal from "../modals/BaseModal.vue";
 import QrcodeVue from "qrcode.vue";
 
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import generatePDF from "../../utils/pdfGenerator";
+import { useSettingsStore } from "../../stores/useSettingsStore";
+import { useBingoCardsStore } from "../../stores/useBingoCardStore";
+import { storeToRefs } from "pinia";
 
 defineProps<{ open: boolean }>();
+const { getTheme } = storeToRefs(useSettingsStore());
+const { getCards} = storeToRefs(useBingoCardsStore());
+const filledInCards = computed(() => {
+  return getCards.value.filter((card => card.checked === true));
+})
 
 const link = ref("https://www.festivalbingo.app");
 const socials = ref({
