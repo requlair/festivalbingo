@@ -65,22 +65,16 @@ import { DropdownItem } from '../../types/types';
 import Dropdown from '../dropdown/AppDropdown.vue';
 import BaseModal from '../modals/BaseModal.vue';
 
-import FestivalLogo from '/images/festival-logo.png';
-import PaaspopLogo from '/images/paaspop-logo.png';
-import LowlandsLogo from '/images/lowlands-logo.png';
-import DTRHLogo from '/images/dtrh-logo.png';
-import PinkpopLogo from '/images/pinkpop-logo.png';
-
 const { updateTheme, updateGridColumns, resetSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
 const { resetCards } = useBingoCardsStore();
 
 const themeOptions: DropdownItem[] = [
-    { logo: FestivalLogo, label: 'Festival', value: 'festival' },
-    { logo: PaaspopLogo, label: 'Paaspop', value: 'paaspop' },
-    { logo: LowlandsLogo, label: 'Lowlands', value: 'lowlands' },
-    { logo: DTRHLogo, label: 'DTRH', value: 'dtrh' },
-    { logo: PinkpopLogo, label: 'Pinkpop', value: 'pinkpop' },
+    { logo: 'festival', label: 'Festival', value: 'festival' },
+    { logo: 'paaspop', label: 'Paaspop', value: 'paaspop' },
+    { logo: 'lowlands', label: 'Lowlands', value: 'lowlands' },
+    { logo: 'dtrh', label: 'DTRH', value: 'dtrh' },
+    { logo: 'pinkpop', label: 'Pinkpop', value: 'pinkpop' },
 ];
 const copyrightInfo = [
   { name: 'festival', copyright: [{ label: 'Lejon Bergman', source: 'https://www.linkedin.com/in/lejon-bergman' }]},

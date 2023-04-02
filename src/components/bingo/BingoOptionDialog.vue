@@ -1,6 +1,6 @@
 <template>
   <BaseModal
-    :font="getTheme.fontFamily"
+    :font="getTheme.name"
     :show="open"
     @close="handleClose"
   >

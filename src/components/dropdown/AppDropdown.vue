@@ -7,7 +7,7 @@
       <img
         v-if="selectedItem.logo"
         class="w-4 mr-2"
-        :src="selectedItem.logo"
+        :src="`/images/${selectedItem.logo}-logo.png`"
       >
       <Icon
         v-if="selectedItem.icon"
@@ -34,7 +34,7 @@
         <img
           v-if="item.logo"
           class="w-4 mr-2"
-          :src="item.logo"
+          :src="`/images/${item.logo}-logo.png`"
         >
         {{ item.label }}
       </button>

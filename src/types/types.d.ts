@@ -16,3 +16,10 @@ export type Settings = {
   theme: string;
   gridColumns: string;
 };
+
+export type Theme = {
+  name: string,
+  header: string,
+  logo: string,
+  color: string,
+}

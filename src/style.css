@@ -3,27 +3,27 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Festival";
+  font-family: "festival";
   src: url("/fonts/festival.ttf");
   font-style: normal;
 }
 @font-face {
-  font-family: "Paaspop";
+  font-family: "paaspop";
   src: url("/fonts/paaspop.ttf");
   font-style: normal;
 }
 @font-face {
-  font-family: "Lowlands";
+  font-family: "lowlands";
   src: url("/fonts/lowlands.ttf");
   font-style: normal;
 }
 @font-face {
-  font-family: "DTRH";
+  font-family: "dtrh";
   src: url("fonts/dtrh.ttf");
   font-style: normal;
 }
 @font-face {
-  font-family: "Pinkpop";
+  font-family: "pinkpop";
   src: url("/fonts/pinkpop.ttf");
   font-weight: 400;
   font-style: normal;

@@ -5,7 +5,7 @@
         cx="50"
         cy="50"
         r="49"
-        :stroke="getColor()"
+        :stroke="getTheme.color"
         stroke-width="2"
         fill="none"
       />
@@ -40,9 +40,4 @@ defineProps({
 });
 
 const { getTheme } = storeToRefs(useSettingsStore());
-
-const getColor = () => {
-  const colors = getTheme.value.colors;
-  return colors[Math.floor(Math.random() * colors.length)];
-};
 </script>

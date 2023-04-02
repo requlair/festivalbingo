@@ -1,15 +1,15 @@
-import * as pdfMake from "pdfmake/build/pdfmake";
+import { createPdf } from "pdfmake/build/pdfmake.min";
 import { TDocumentDefinitions, Content } from "pdfmake/interfaces";
-import { BingoCard } from "../types/types";
+import { BingoCard, Theme } from "../types/types";
 
-function generatePDF (theme: string, themeColor: string, cards: BingoCard[]) {
+function generatePDF (theme: Theme, cards: BingoCard[]) {
     const images = {
-        Header: `${window.location.origin}/images/${theme.toLowerCase()}-header.png`,
-        Logo: `${window.location.origin}/images/${theme.toLowerCase()}-logo.png`,
+        Header: `${window.location.origin}/images/${theme.name}-header.png`,
+        Logo: `${window.location.origin}/images/${theme.name}-logo.png`,
     }
     const fonts = {
-        [theme] : {
-            normal: `${window.location.origin}/fonts/${theme.toLocaleLowerCase()}.ttf`,
+        [theme.name] : {
+            normal: `${window.location.origin}/fonts/${theme.name}.ttf`,
         }
     }
     const dd: TDocumentDefinitions = {
@@ -29,22 +29,22 @@ function generatePDF (theme: string, themeColor: string, cards: BingoCard[]) {
             margin: [0, 250, 0, 0]
         },
         content: [
-            ...createPDFContent(themeColor,cards),
+            ...createPDFContent(theme.color,cards),
         ],
         images: images,
         defaultStyle: {
-            font: theme,
+            font: theme.name,
         }
     }
-    pdfMake.createPdf(dd, undefined, fonts).open();
+    createPdf(dd, undefined, fonts).open();
 }
 
 export default generatePDF;
 
-const createPDFContent = (themeColor: string, cards: BingoCard[]) => {
+const createPDFContent = (color: string, cards: BingoCard[]) => {
     const content = cards.map((card) => {
         return {
-            svg: generateCard(themeColor, card.text, card.signature),
+            svg: generateCard(color, card.text, card.signature),
             fit: [200, 250],
         }
     });
@@ -66,12 +66,12 @@ const createPDFContent = (themeColor: string, cards: BingoCard[]) => {
     return result;
 }
 
-const generateCard = ( cardColor: string, headerText: string, bodyContent: string ) => {
+const generateCard = ( color: string, headerText: string, bodyContent: string ) => {
     const content = createCardContent(headerText, bodyContent, 15, 30);
 
     return `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
-        <rect fill="white" stroke-width="2" stroke="${cardColor}" x="2" y="2" width="196" height="296" rx="15" />
+        <rect fill="white" stroke-width="2" stroke="${color}" x="2" y="2" width="196" height="296" rx="15" />
         ${content.header.outerHTML}
         ${content.body.outerHTML}
     </svg>`
