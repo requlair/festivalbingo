@@ -10,7 +10,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "echo \"www.festivalbingo.app\" > dist/CNAME gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
