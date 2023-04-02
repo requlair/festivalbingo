@@ -9,8 +9,8 @@
     "lint": "npx eslint . --ext .ts,.vue,.js",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "echo \"www.festivalbingo.app\" > dist/CNAME gh-pages -d dist"
+    "predeploy": "npm run build && echo \"www.festivalbingo.app\" > dist/CNAME",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
