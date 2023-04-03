@@ -70,7 +70,6 @@ const app = createApp(App);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(VueGtag, {
-    appName: 'festivalingo',
     enabled: true, 
     config: { 
       id: 'G-B1GKTS7NE8',
