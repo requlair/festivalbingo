@@ -68,7 +68,7 @@ import VueGtag from "vue-gtag";
 
 const app = createApp(App);
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'production') {
   app.use(VueGtag, {
     appName: 'festivalingo',
     enabled: true, 
