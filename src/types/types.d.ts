@@ -15,6 +15,7 @@ export type DropdownItem = {
 export type Settings = {
   theme: string;
   gridColumns: string;
+  disableCookies: boolean;
 };
 
 export type Theme = {

@@ -51,7 +51,7 @@
         v-if="!card.checked"
         class="flex"
       >
-        <Dropdown
+        <DropdownMenu
           :selected-item="selectedInput"
           :items="inputOptions"
           :on-option-clicked="handleInputSelect"
@@ -78,11 +78,11 @@
   </BaseModal>
 </template>
 <script setup lang="ts">
-import BaseModal from "../modals/BaseModal.vue";
+import BaseModal from "./BaseModal.vue";
 import CameraPad from "../CameraPad.vue";
 import SignaturePad from "../SignaturePad.vue";
 import MessagePad from "../MessagePad.vue";
-import Dropdown from "../dropdown/AppDropdown.vue";
+import DropdownMenu from "../dropdowns/DropdownMenu.vue";
 
 import { ref } from "vue";
 import { storeToRefs } from "pinia";

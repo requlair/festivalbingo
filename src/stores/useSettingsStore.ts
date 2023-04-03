@@ -27,6 +27,9 @@ export const useSettingsStore = defineStore("settings", {
     getGrid(): string {
       return this.settings.gridColumns;
     },
+    getCookiesDisabled(): boolean {
+      return this.settings.disableCookies;
+    }
   },
   actions: {
     updateSettings(newSettings: Settings) {
@@ -38,8 +41,15 @@ export const useSettingsStore = defineStore("settings", {
     updateGridColumns(newGridColumns: string) {
       this.settings.gridColumns = newGridColumns;
     },
+    updateCookiesDisabled(newValue: boolean) {
+      this.settings.disableCookies = newValue;
+    },
     resetSettings() {
-      this.settings = defaultSettings;
+      this.settings = {
+        theme: defaultSettings.theme,
+        gridColumns: defaultSettings.gridColumns,
+        disableCookies: this.settings.disableCookies
+      };
     },
   },
 });
@@ -47,6 +57,7 @@ export const useSettingsStore = defineStore("settings", {
 const defaultSettings: Settings = {
   theme: "festival",
   gridColumns: "grid-cols-2",
+  disableCookies: false,
 };
 
 const themeColors = {

@@ -25,6 +25,7 @@
     "qrcode.vue": "^3.3.4",
     "signature_pad": "^4.1.5",
     "vue": "^3.2.45",
+    "vue-gtag": "^2.0.1",
     "vue-social-sharing": "^4.0.0-alpha4",
     "zipson": "^0.2.12"
   },

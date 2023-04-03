@@ -18,7 +18,7 @@
       <div class="grid grid-rows-2 grid-flow-col gap-4 landscape:grid-rows-1">
         <div>
           <h4>Kies je Thema:</h4>
-          <Dropdown
+          <DropdownMenu
             :selected-item="selectedTheme"
             :on-option-clicked="handleThemeSelect"
             :items="themeOptions"
@@ -36,7 +36,7 @@
         </div>
         <div>
           <h4>Kies je Layout:</h4>
-          <Dropdown
+          <DropdownMenu
             :selected-item="selectedGrid"
             :on-option-clicked="handleGridSelect"
             :items="gridOptions"
@@ -62,8 +62,8 @@ import { computed } from 'vue';
 import { useBingoCardsStore } from '../../stores/useBingoCardStore';
 import { useSettingsStore } from '../../stores/useSettingsStore';
 import { DropdownItem } from '../../types/types';
-import Dropdown from '../dropdown/AppDropdown.vue';
-import BaseModal from '../modals/BaseModal.vue';
+import DropdownMenu from '../dropdowns/DropdownMenu.vue';
+import BaseModal from './BaseModal.vue';
 
 const { updateTheme, updateGridColumns, resetSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());

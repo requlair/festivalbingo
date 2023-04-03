@@ -30,24 +30,36 @@
       >
         Disclaimer
       </a>
+      <a
+        class="ml-1 cursor-pointer"
+        @click="isPrivacyModalOpen = true"
+      >
+        Privacy
+      </a>
     </div>
   </footer>
-  <DisclaimerDialog
+  <DisclaimerModal
     :open="isDisclaimerModalOpen"
     @close="isDisclaimerModalOpen = false"
+  />
+  <PrivacyModal
+    :open="isPrivacyModalOpen"
+    @close="isPrivacyModalOpen = false"
   />
 </template>
 
 <script setup lang="ts">
 import BingoGame from "./components/bingo/BingoGame.vue";
-import DisclaimerDialog from "./components/DisclaimerDialog.vue";
+import DisclaimerModal from "./components/modals/DisclaimerModal.vue";
 
 
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useSettingsStore } from "./stores/useSettingsStore";
+import PrivacyModal from "./components/modals/PrivacyModal.vue";
 
 
 const { getTheme } = storeToRefs(useSettingsStore());
 const isDisclaimerModalOpen = ref(false);
+const isPrivacyModalOpen = ref(false);
 </script>

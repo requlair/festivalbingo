@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseModal from "../modals/BaseModal.vue";
+import BaseModal from "./BaseModal.vue";
 import QrcodeVue from "qrcode.vue";
 
 import { computed, ref } from "vue";

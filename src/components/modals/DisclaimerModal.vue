@@ -33,7 +33,7 @@
 </template>
     
 <script setup lang="ts">
-import BaseModal from "./modals/BaseModal.vue";
+import BaseModal from "./BaseModal.vue";
 
 defineProps<{ open: boolean }>();
 

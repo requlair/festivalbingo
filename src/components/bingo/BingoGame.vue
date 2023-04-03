@@ -8,7 +8,7 @@
           type="text"
           placeholder="&#128269; Zoeken..."
         >
-        <Dropdown
+        <DropdownMenu
           :items="inputOptions"
           :selected-item="selectedInput"
           :on-option-clicked="handleInputSelect"
@@ -52,24 +52,24 @@
       />
     </div>
 
-    <BingoOptionDialog
+    <BingoOptionModal
       :open="isOptionModalOpen"
       :card="selectedCard!"
       @close="isOptionModalOpen = false"
     />
-    <BingoProgressDialog
+    <BingoProgressModal
       :open="isProgressModalOpen"
       @close="isProgressModalOpen = false"
     />
-    <BingoSharingDialog
+    <BingoSharingModal
       :open="isSharingModalOpen"
       @close="isSharingModalOpen = false"
     />
-    <BingoInfoDialog 
+    <BingoInfoModal 
       :open="isInfoModalOpen"
       @close="isInfoModalOpen = false"
     />
-    <BingoSettingsDialog
+    <BingoSettingsModal
       :open="isSettingsModalOpen"
       @close="isSettingsModalOpen = false"
     />
@@ -77,13 +77,13 @@
 </template>
 
 <script setup lang="ts">
-import Dropdown from "../dropdown/AppDropdown.vue";
+import DropdownMenu from "../dropdowns/DropdownMenu.vue";
 import BingoOption from "./BingoOption.vue";
-import BingoOptionDialog from "./BingoOptionDialog.vue";
-import BingoProgressDialog from "./BingoProgressDialog.vue";
-import BingoSharingDialog from "./BingoSharingDialog.vue";
-import BingoInfoDialog from "./BingoInfoDialog.vue";
-import BingoSettingsDialog from "./BingoSettingsDialog.vue";
+import BingoOptionModal from "../modals/BingoOptionModal.vue";
+import BingoProgressModal from "../modals/BingoProgressModal.vue";
+import BingoSharingModal from "../modals/BingoSharingModal.vue";
+import BingoInfoModal from "../modals/BingoInfoModal.vue";
+import BingoSettingsModal from "../modals/BingoSettingsModal.vue";
 
 import { computed, ref } from "vue";
 import { storeToRefs } from "pinia";

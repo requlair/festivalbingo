@@ -64,8 +64,25 @@ library.add({
 import { dom } from "@fortawesome/fontawesome-svg-core";
 dom.watch();
 
-createApp(App)
-  .use(createPinia())
-  .use(VueSocialSharing)
-  .component("Icon", FontAwesomeIcon)
-  .mount("#app");
+import VueGtag from "vue-gtag";
+
+const app = createApp(App);
+
+if(process.env.NODE_ENV === 'development') {
+  app.use(VueGtag, {
+    appName: 'festivalingo',
+    enabled: true, 
+    config: { 
+      id: 'G-B1GKTS7NE8',
+      params: {
+        anonymize_ip: true
+      }
+    },
+  });
+}
+
+app.use(createPinia())
+.use(VueSocialSharing)
+.component("Icon", FontAwesomeIcon)
+.mount("#app");
+

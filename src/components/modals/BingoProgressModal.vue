@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseModal from "../modals/BaseModal.vue";
+import BaseModal from "./BaseModal.vue";
 
 import { computed } from "vue";
 import { storeToRefs } from "pinia";
