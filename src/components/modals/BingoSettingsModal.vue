@@ -64,6 +64,7 @@ import { useSettingsStore } from '../../stores/useSettingsStore';
 import { DropdownItem } from '../../types/types';
 import DropdownMenu from '../dropdowns/DropdownMenu.vue';
 import BaseModal from './BaseModal.vue';
+import { event } from 'vue-gtag';
 
 const { updateTheme, updateGridColumns, resetSettings } = useSettingsStore();
 const { getSettings } = storeToRefs(useSettingsStore());
@@ -102,9 +103,11 @@ const selectedGrid = computed(() => {
     return gridOptions.filter((option) => option.value === getSettings.value.gridColumns)[0];
 })
 function handleThemeSelect (value: string) {
-    updateTheme(value);
+  event('theme_setting_select');
+  updateTheme(value);
 }
 const handleReset = () => {
+    event('app_reset_select');
     if(confirm('Al je data en instellingen zullen worden verwijdert. Weet je zeker dat je door wilt gaan?')){
         resetCards();
         resetSettings();
@@ -112,7 +115,8 @@ const handleReset = () => {
     return;
 }
 const handleGridSelect = (value: string) => {
-    updateGridColumns(value);
+  event('grid_setting_select');
+  updateGridColumns(value);
 }
 
 defineProps<{ open: boolean }>()

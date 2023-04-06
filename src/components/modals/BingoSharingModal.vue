@@ -34,13 +34,19 @@
               Kopieer de link
             </button>
           </div>
-          <div>
+          <div class="flex">
             <button 
               class="px-2 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
               @click="generatePDF(getTheme, filledInCards)"
             >
               Deel de PDF
             </button>
+            <a 
+              class="px-2 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
+              href="https://tikkie.me/pay/fntpe5as3m100j7tq0tp"
+            >
+              Doneer een biertje
+            </a>
           </div>
         </div>
         <div class="flex justify-center portrait:mt-4">

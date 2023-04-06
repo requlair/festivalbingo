@@ -36,9 +36,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Resizer from "../utils/imageResizer";
+import { event } from "vue-gtag";
 
 const fileInput = ref<HTMLInputElement | null>(null);
 const getInputString = async () => {
+  event('selfie_saved');
   if (!fileInput.value) {
     return "";
   }

@@ -17,25 +17,25 @@
       <div class="flex">
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
-          @click="isProgressModalOpen = true"
+          @click="(isProgressModalOpen = true) && event('open_progress_modal')"
         >
           <i class="fas fa-trophy" />
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
-          @click="isSharingModalOpen = true"
+          @click="(isSharingModalOpen = true) && event('open_sharing_modal')"
         >
           <i class="fas fa-share-nodes" />
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
-          @click="isInfoModalOpen = true"
+          @click="(isInfoModalOpen = true) && event('open_info_modal')"
         >
           <i class="far fa-circle-question" />
         </button>
         <button
           class="border-2 bg-white px-2 py-1 w-9 h-9 rounded-lg"
-          @click="isSettingsModalOpen = true"
+          @click="(isSettingsModalOpen = true) && event('open_settings_modal')"
         >
           <i class="fas fa-gear" />
         </button>
@@ -90,6 +90,7 @@ import { storeToRefs } from "pinia";
 import { useBingoCardsStore } from "../../stores/useBingoCardStore";
 import { useSettingsStore } from "../../stores/useSettingsStore";
 import { BingoCard, DropdownItem } from "../../types/types";
+import { event } from "vue-gtag";
 
 const { getCards } = storeToRefs(useBingoCardsStore());
 const { getGrid } = storeToRefs(useSettingsStore());

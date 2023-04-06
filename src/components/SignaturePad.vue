@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import SignaturePad from "signature_pad";
+import { event } from "vue-gtag";
 
 const sig = ref<SignaturePad | null>(null);
 const sigCanvas = ref<HTMLCanvasElement | null>(null);
@@ -46,6 +47,7 @@ const clear = () => {
   }
 };
 const getInputString = () => {
+  event('signature_saved');
   if(!sig.value || sig.value.isEmpty()){
     return;
   }

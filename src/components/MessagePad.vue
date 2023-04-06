@@ -8,9 +8,11 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { event } from "vue-gtag";
 
 const textArea = ref<HTMLTextAreaElement | null>(null);
 const getInputString = () => {
+  event('message_saved');
   if (!textArea.value) {
     return;
   }

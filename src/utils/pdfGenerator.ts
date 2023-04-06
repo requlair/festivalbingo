@@ -1,8 +1,10 @@
 import { createPdf } from "pdfmake/build/pdfmake.min";
 import { TDocumentDefinitions, Content } from "pdfmake/interfaces";
 import { BingoCard, Theme } from "../types/types";
+import { event } from "vue-gtag";
 
 function generatePDF (theme: Theme, cards: BingoCard[]) {
+    event('generate_pdf');
     const images = {
         Header: `${window.location.origin}/images/${theme.name}-header.png`,
         Logo: `${window.location.origin}/images/${theme.name}-logo.png`,

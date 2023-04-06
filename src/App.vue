@@ -26,13 +26,13 @@
       ><span class="ml-1">Lejon Bergman</span></a>
       <a
         class="ml-1 cursor-pointer"
-        @click="isDisclaimerModalOpen = true"
+        @click="(isDisclaimerModalOpen = true) && event('open_disclaimer_modal')"
       >
         Disclaimer
       </a>
       <a
         class="ml-1 cursor-pointer"
-        @click="isPrivacyModalOpen = true"
+        @click="(isPrivacyModalOpen = true) && event('open_privacy_modal')"
       >
         Privacy
       </a>
@@ -56,8 +56,10 @@ import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useSettingsStore } from "./stores/useSettingsStore";
 import PrivacyModal from "./components/modals/PrivacyModal.vue";
+import { event } from "vue-gtag";
 
 const { getTheme } = storeToRefs(useSettingsStore());
+
 const isDisclaimerModalOpen = ref(false);
 const isPrivacyModalOpen = ref(false);
 </script>
