@@ -43,7 +43,7 @@
             </button>
             <a 
               class="px-2 h-9 flex justify-center items-center border-2 rounded-lg mr-1"
-              href="https://tikkie.me/pay/fntpe5as3m100j7tq0tp"
+              href="https://tikkie.me/pay/tqoqjpjad6il8273ohtb"
               target="_blank"
             >
               Doneer een biertje
